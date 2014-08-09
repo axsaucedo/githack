@@ -145,12 +145,13 @@ INSTALLED_APPS = (
 
     'django.contrib.admin',
 
-    'south',
     'accounts',
     'githack',
 
     'rest_framework',
     'social_auth',
+
+    'south',
 )
 
 AUTH_PROFILE_MODULE = "accounts.UserProfile"
