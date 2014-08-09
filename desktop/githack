@@ -1,3 +1,51 @@
 #!/usr/bin/env python
-import os
-print("here will be analyzer")
+import fileinput
+import re
+import json
+import urllib, urllib2
+
+linesadded = 0
+linesremoved = 0
+pstate = "init"
+for item in fileinput.input():
+    if pstate=="init":
+        if re.search("^diff",item):
+            pstate = "parseindex"
+        continue
+    if pstate=="parseindex":
+        if re.search("^index",item):
+            pstate = "parsein"
+        continue
+    if pstate=="parsein":
+        if re.search("^[-]",item):
+            pstate = "parseout"
+        continue
+    if pstate=="parseout":
+        if re.search("^[+]",item):
+            pstate = "parsestat"
+        continue
+    if pstate=="parsestat":
+        if re.search("^@@",item):
+            pstate = "actuallywork"
+        continue
+    if pstate=="actuallywork":
+        if re.search("^[+]", item):
+            linesadded = linesadded + 1
+        if re.search("^[-]", item):
+            linesremoved = linesremoved + 1
+        if re.search("^diff",item):
+            pstate = "parseindex"
+
+data = json.dumps({
+    "linesadded" : linesadded,
+    "linesremoved" : linesremoved,
+})
+
+# do POST
+url_2 = 'http://en.wikipedia.org/wiki/Linux_kernel'
+req = urllib2.Request(url_2, data, headers={'Content-Type': 'application/json'})
+rsp = urllib2.urlopen(req)
+content = rsp.read()
+
+for line in fileinput.input("/home/iam/coderepo/GitHack/desktop/testasciiimg"):
+    print(line[:-1])
