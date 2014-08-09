@@ -42,4 +42,5 @@ class Commit(models.Model):
 
     def check_for_level(self):
         #return {"level":1, "progress":35, "its_new":"yes"}
-        return {"level":1, "progress":33, "its_new":"no"}
+        import random
+        return {"level":1, "progress":33, "its_new":random.choice(["no","yes"])}

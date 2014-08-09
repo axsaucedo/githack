@@ -61,10 +61,4 @@ req = urllib2.Request(url_2, data, headers={'Content-Type': 'application/json'})
 rsp = urllib2.urlopen(req)
 content = rsp.read()
 resp = json.loads(content)
-if resp['level']['its_new']=='yes':
-    os.system('toilet --metal NEW LEVEL %i' % resp['level']['level'])
-else:
-    print("level %i, progress %i" % (resp['level']['level'],resp['level']['progress']))
-for badge in resp['newbadges']:
-    print(resp["text"])
-    os.system('toilet --gay NEW BADGE: %s' % badge['name'])
+print(resp['text'])

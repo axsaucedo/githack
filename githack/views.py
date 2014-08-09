@@ -25,17 +25,16 @@ def usercommit(request):
     new_levels = obj.check_for_level()
     new_badges = obj.check_for_badges()
 
-
     os.environ['PATH'] += os.pathsep + '/usr/local/bin/'
-    txt=os.popen('toilet --gay Level UP!!').read()
-    #    print f
-    #
-    #    response = { "text" : f }
 
+    if new_levels['its_new']=='yes':
+        text = os.popen('toilet --metal NEW LEVEL %i' % new_levels['level']).read()
+    else:
+        text = "level %i, progress %i" % (new_levels['level'], new_levels['progress'])
+    for badge in new_badges:
+        text = text + "\n" + os.popen('toilet --gay NEW BADGE: %s' % badge['name']).read()
     response = {
-        "level" : new_levels,
-        "newbadges" : new_badges,
-        "text" : txt,
+        "text" : text,
     }
 
     return HttpResponse(json.dumps(response), content_type="application/json")
