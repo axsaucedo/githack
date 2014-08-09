@@ -3,6 +3,7 @@ import fileinput
 import re
 import json
 import urllib, urllib2
+import os
 
 linesadded = 0
 linesremoved = 0
@@ -36,11 +37,23 @@ for item in fileinput.input():
         if re.search("^diff",item):
             pstate = "parseindex"
 
+inputsessions = 0
+inputtime = 0
+try:
+    for line in fileinput.input("/tmp/vimdata"):
+        m = re.search("msg ([0-9]+)\s([0-9]+)", line)
+        if m:
+            inputtime = inputtime + int(m.group(1))
+            inputsessions = inputsessions + int(m.group(2))
+    os.system("rm /tmp/vimdata")
+except:
+    pass
 data = json.dumps({
     "linesadded" : linesadded,
     "linesremoved" : linesremoved,
+    "inputtime" : inputtime/1000,
+    "inputsessions" : inputsessions
 })
-
 # do POST
 url_2 = 'http://66111ff0.ngrok.com/usercommit/'
 req = urllib2.Request(url_2, data, headers={'Content-Type': 'application/json'})
