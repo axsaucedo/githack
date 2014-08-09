@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from githack.tools.toolbox import path_and_rename
+from githack.tools.toolbox import path_and_rename, calculate_experience, experience_required
 
 class GitScore(models.Model):
     user = models.OneToOneField(User, unique=True)
@@ -42,6 +42,5 @@ class Commit(models.Model):
         return []
 
     def check_for_level(self):
-        #return {"level":1, "progress":35, "its_new":"yes"}
-        import random
+        self.user.gitscore.experience += calculate_experience(self.linesadded, self.linesremoved, self.time, self.viminputsessions)
         return {"level":1, "progress":33, "its_new":random.choice(["no","yes"])}

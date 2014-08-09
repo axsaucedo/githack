@@ -8,13 +8,10 @@ import os
 
 def usercommit(request):
 
-    post = request.POST
-
     data = json.loads(request.body)
    
     user = User.objects.all()[0]
 
-    Commit.objects.all().delete()
     obj = Commit()
     obj.timelength =  data['inputtime']
     obj.linesremoved = data['linesremoved']
@@ -22,6 +19,7 @@ def usercommit(request):
     obj.viminputsessions = data['inputsessions']
     obj.user =user
     obj.save()
+
     new_levels = obj.check_for_level()
     new_badges = obj.check_for_badges()
 
