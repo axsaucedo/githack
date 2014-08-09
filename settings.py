@@ -134,7 +134,7 @@ ROOT_URLCONF = 'urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'githack.wsgi.application'
 
-TEMPLATE_DIRS = ('/Users/axsauze/IdeaProjects/githack/templates',)
+TEMPLATE_DIRS = ('templates',)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
