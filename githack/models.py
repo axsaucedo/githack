@@ -27,10 +27,19 @@ class Badges(models.Model):
         return self.name
 
 class Commit(models.Model):
-    user = models.OneToOneField(User, unique=True)
+    user = models.OneToOneField(User, unique=True, null=True)
 
     datetime = models.DateTimeField(auto_now_add=True)
     timelength = models.DecimalField(decimal_places=2, max_digits=20)
     linesadded = models.IntegerField()
     linesremoved = models.IntegerField()
     viminputsessions = models.IntegerField(default=1)
+
+    def check_for_badges(self):
+        if self.linesadded==1 and self.linesremoved==1:
+            return [{"name":"sniper fix"}]
+        return []
+
+    def check_for_level(self):
+        #return {"level":1, "progress":35, "its_new":"yes"}
+        return {"level":1, "progress":33, "its_new":"no"}
