@@ -1,0 +1,61 @@
+.modifed_hr{
+    top:0px;
+    margin-bottom:0px;
+}
+.us{
+    text-align:center;
+}
+
+.profilePic {
+    width: 100%
+}
+
+.badge {
+    margin-bottom: 10px;
+    width: 30%;
+    cursor: pointer;
+}
+
+.badge img{
+    /*width: 110px !important;
+    height: 110px;*/
+    width: 100%
+}
+
+.badgeDesc {
+    display: none;
+    position:absolute;
+    margin:40px 0 0 -10px;
+    background: #5f5f5f repeat;
+    width:135px;
+    border-radius: 15px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    background: url(../images/bg_2.png) repeat;
+    border:3px solid #ccc;
+
+
+}
+
+.clear {
+    clear: both;
+}
+
+/*.badge:hover + .badgeDesc {
+   display: block;
+}*/
+
+
+.badge.disabled {
+    -webkit-filter: grayscale(100%);
+}
+
+.profileContainer {
+    width:800px;
+    margin: 0 auto;
+}
+
+#sidebar {
+    padding-left: 0 !important;
+}
