@@ -11,7 +11,7 @@ from githack.tools.forms import GHUserEditForm, GHPasswordChangeForm, GHUserCrea
 def signup(request):
 
     if request.user.is_authenticated():
-        return redirect('view_account')
+        return redirect('/accounts/view/' + request.user.username + '/')
 
     form = request.POST.get("form", "")
 

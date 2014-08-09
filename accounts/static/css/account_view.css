@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.badge:hover > .badgeDesc {
+    display: block;
+}
+
 .badge img{
     /*width: 110px !important;
     height: 110px;*/
@@ -34,8 +38,6 @@
     text-align: center;
     background: url(../images/bg_2.png) repeat;
     border:3px solid #ccc;
-
-
 }
 
 .clear {
