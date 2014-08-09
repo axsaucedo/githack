@@ -53,5 +53,15 @@ class Commit(models.Model):
         return []
 
     def check_for_level(self):
+        levelup=False
+
         self.user.gitscore.experience += calculate_experience(self.linesadded, self.linesremoved, self.time, self.viminputsessions)
-        return {"level":1, "progress":33, "its_new":random.choice(["no","yes"])}
+        if self.user.gitscore.experience > experience_required(self.user.gitscore.level):
+            levelup=True
+            self.user.gitscore.level = self.user.gitscore.level + 1
+            self.user.gitscore.experience=0
+
+        self.user.save()
+        self.user.gitscore.save()
+
+        return {"level":self.user.gitscore.level, "progress":self.user.gitscore.experience, "levelup":levelup }
