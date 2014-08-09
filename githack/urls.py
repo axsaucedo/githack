@@ -9,5 +9,7 @@ urlpatterns = patterns('',
     # Home
 #    url(r'^$', 'githack.views.home', name='home'),
 
+    # API
+
     url(r'^admin/', include(admin.site.urls)),
 )

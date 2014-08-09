@@ -82,7 +82,9 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = BASE_DIR + '/static'
+STATIC_ROOT = BASE_DIR + '/templates/static'
+print STATIC_ROOT
+
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -90,8 +92,8 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    BASE_DIR + '/templates/static',
-    BASE_DIR + '/templates/static',
+    BASE_DIR + '/accounts/static',
+    BASE_DIR + '/githack/static',
 )
 
 # Additional locations of static files
