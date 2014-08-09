@@ -32,10 +32,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+<<<<<<< HEAD:settings.py
         'NAME': 'githackdb',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': 'githack',
         'PASSWORD': 'githack1234',
+=======
+        'NAME': '',                      # Or path to database file if using sqlite3.
+        # The following settings are not used with sqlite3:
+        'USER': 'username',
+        'PASSWORD': 'username',
+>>>>>>> 7801a4311ba9a6b360342ec24dfa6789df94acec:githack/settings.py
         'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
@@ -144,7 +151,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD:settings.py
 
+=======
+    'south',
+    'rest_framework',
+    # Uncomment the next line to enable the admin:
+>>>>>>> 7801a4311ba9a6b360342ec24dfa6789df94acec:githack/settings.py
     'django.contrib.admin',
 
     'accounts',

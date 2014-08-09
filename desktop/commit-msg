@@ -17,5 +17,5 @@
 
 # This example catches duplicate Signed-off-by lines.
 
-git diff HEAD > gitificate
+git diff --no-ext-diff --minimal HEAD | githack
 
