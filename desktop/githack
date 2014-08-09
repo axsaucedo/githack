@@ -42,10 +42,8 @@ data = json.dumps({
 })
 
 # do POST
-url_2 = 'http://en.wikipedia.org/wiki/Linux_kernel'
+url_2 = 'http://66111ff0.ngrok.com/usercommit/'
 req = urllib2.Request(url_2, data, headers={'Content-Type': 'application/json'})
 rsp = urllib2.urlopen(req)
 content = rsp.read()
-
-for line in fileinput.input("/home/iam/coderepo/GitHack/desktop/testasciiimg"):
-    print(line[:-1])
+print(json.loads(content)["text"])
