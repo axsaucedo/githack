@@ -17,15 +17,11 @@
     <script type="text/javascript" src="/static/js/external/jquery.min.js"></script>
     <!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery-->
 
-    <link rel="stylesheet" type="text/css" href="/static/css/external/Bootstrap.css">
 
     <!--Bootstrap amelia theme-->
-    <link rel="stylesheet" href="/static/css/external/bootstrap.css">
+    <link rel="stylesheet" href="http://bootswatch.com/slate/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/external/font-awesome.min.css">
     <link rel="stylesheet" href="/static/css/external/bootstrap-glyphicons.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/external/tagit.css">
-
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
 
     <script type="text/javascript" src="/static/js/external/bootstrap.min.js"></script>
     <script type="text/javascript" src="/static/js/external/collapse.js"></script>
@@ -57,11 +53,11 @@
                 <li><a href="http://www.twitter.com/hackaglobal"><i style="font-size: 1.5em !important;" class="icon-twitter"></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {% if request.user.is_authenticated %}
+                {% if user.is_authenticated %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{% url 'view_account' request.user.username %}">View Account</a></li>
+                            <li><a href="{% url 'view_account' user.username %}">View Account</a></li>
                             <li><a href="{% url 'edit_account' %}">Edit Account</a></li>
                             <li class="divider"></li>
                             <li><a href="{% url 'logout' %}">Log Out</a></li>
@@ -80,10 +76,10 @@
 {#            </form>#}
 
             <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
-                {% if request.user.is_authenticated %}
-                    <li><a href="/find">Events</a></li>
-                    <li><a href="/create">Create</a></li>
-                    <li><a href="/manage">Manage</a></li>
+                {% if user.is_authenticated %}
+{#                    <li><a href="/find">Events</a></li>#}
+{#                    <li><a href="/create">Create</a></li>#}
+{#                    <li><a href="/manage">Manage</a></li>#}
                 {% else %}
                     <li><a href="/accounts/login">Log In</a></li>
                     <li><a href="/accounts/signup">Sign Up</a></li>

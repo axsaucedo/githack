@@ -11,5 +11,8 @@ urlpatterns = patterns('',
 #    url(r'^$', 'githack.views.home', name='home'),
     (r'^$', TemplateView.as_view(template_name='home/index.html')),
 
+    # API
+    url(r'^usercommit/$', 'githack.views.usercommit', name='user_commit'),
+
     url(r'^admin/', include(admin.site.urls)),
 )

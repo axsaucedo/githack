@@ -83,7 +83,6 @@ MEDIA_URL = '/media/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = BASE_DIR + '/templates/static'
-print STATIC_ROOT
 
 
 # URL prefix for static files.
@@ -124,7 +123,7 @@ TEMPLATE_LOADERS = (
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+#    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -146,13 +145,13 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'south',
+
     'accounts',
     'githack',
 
     'rest_framework',
     'social_auth',
-
-    'south',
 )
 
 AUTH_PROFILE_MODULE = "accounts.UserProfile"
@@ -171,17 +170,17 @@ SOCIAL_AUTH_PIPELINE = (
     'social_auth.backends.pipeline.social.associate_user',
     'social_auth.backends.pipeline.social.load_extra_data',
     'social_auth.backends.pipeline.user.update_user_details',
-#    'accounts.pipelines.get_user_avatar',
+    'accounts.pipelines.get_user_avatar',
 )
 
-LOGIN_URL          = '/login/'
-LOGIN_REDIRECT_URL = '/manage/'
-LOGIN_ERROR_URL    = '/login/'
+LOGIN_URL          = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/accounts/edit/'
+LOGIN_ERROR_URL    = '/accounts/login/'
 
-GITHUB_APP_ID               = '24efcccb1598fff7c1e5'
-GITHUB_APP_SECRET           = '924aa90d8e323dd0b58f9ca88f5a6d3d972a39e1'
+GITHUB_APP_ID               = '85db5680254e344f7dfc'
+GITHUB_API_SECRET           = '97b66ef7bd04d33b3c3c29cd62a9e427a728a26e'
 
-SOCIAL_AUTH_ENABLED_BACKENDS = ('github',)
+#SOCIAL_AUTH_ENABLED_BACKENDS = ('github',)
 
 LOGGING = {
     'version': 1,

@@ -12,6 +12,27 @@
         </div>
         <div class="row">
             <div class="container">
+
+                <div class="col-md-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">My HackaCities</h3>
+                        </div>
+                        <div class="panel-body">
+{#                            {% if hackacities %}#}
+{#                                {% for hackacity in hackacities %}#}
+{#                                    {% include "layouts/hackacity.html" with hackacity=hackacity %}#}
+{#                                {% endfor %}#}
+{#                            {% else %}#}
+{#                                <div class="well">#}
+{#                                    <p>You're still not part of any hackacity...</p>#}
+{#                                    <p>Why don't you start by <a href="/find">Joining one?</a></p>#}
+{#                                </div>#}
+{#                            {% endif %}#}
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-md-6">
                     <div>
                         <div class="col-md-3">
@@ -23,26 +44,6 @@
                                 <div class="nameclass label label-primary"> Your Last Name: {{ user.last_name }} </div><br>
                                 <div class="nameclass label label-primary"> Your Email: {{ user.email }} </div><br>
                             </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">My HackaCities</h3>
-                        </div>
-                        <div class="panel-body">
-                            {% if hackacities %}
-                                {% for hackacity in hackacities %}
-                                    {% include "layouts/hackacity.html" with hackacity=hackacity %}
-                                {% endfor %}
-                            {% else %}
-                                <div class="well">
-                                    <p>You're still not part of any hackacity...</p>
-                                    <p>Why don't you start by <a href="/find">Joining one?</a></p>
-                                </div>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
