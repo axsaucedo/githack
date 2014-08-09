@@ -1,0 +1,134 @@
+/*
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/*********************************************************************************/
+/* Basic                                                                         */
+/*********************************************************************************/
+
+	body,input,textarea,select
+	{
+		font-size: 13pt;
+		line-height: 1.65em;
+	}
+
+	.tweet
+	{
+		text-align: center;
+	}
+
+	.timestamp
+	{
+		display: block;
+		text-align: center;
+	}
+
+/*********************************************************************************/
+/* Footer                                                                        */
+/*********************************************************************************/
+
+	#footer
+	{
+		padding: 4em 2em 4em 2em;
+	}
+	
+/*********************************************************************************/
+/* Carousel                                                                      */
+/*********************************************************************************/
+
+	.carousel
+	{
+		padding: 1.25em 0 1.25em 0;
+	}
+
+		.carousel article
+		{
+			width: 18em;
+			margin: 0 1em 0 0;
+		}
+
+		.carousel .forward,
+		.carousel .backward
+		{
+			position: absolute;
+			top: 50%;
+			width: 6em;
+			height: 12em;
+			margin-top: -6em;
+			cursor: pointer;
+		}
+		
+		.carousel .forward
+		{
+			right: 0;
+		}
+		
+		.carousel .backward
+		{
+			left: 0;
+		}
+
+			.carousel .forward:before,
+			.carousel .backward:before
+			{
+				content: '';
+				display: block;
+				width: 6em;
+				height: 6em;
+				border-radius: 100%;
+				background-color: rgba(72,57,73, 0.5);				
+				position: absolute;
+				top: 50%;
+				margin-top: -3em;
+				-moz-transition: background-color 0.35s ease-in-out;
+				-webkit-transition: background-color 0.35s ease-in-out;
+				-o-transition: background-color 0.35s ease-in-out;
+				-ms-transition: background-color 0.35s ease-in-out;
+				transition: background-color 0.35s ease-in-out;
+				-webkit-backface-visibility: hidden;
+			}
+
+			.carousel .forward:after,
+			.carousel .backward:after
+			{
+				content: '';
+				width: 3em;
+				height: 3em;
+				position: absolute;
+				top: 50%;
+				margin: -1.5em 0 0 0;
+				background: url('images/arrow.svg') no-repeat center center;
+			}
+
+			.carousel .forward:after
+			{
+				right: -0.25em;
+			}
+
+			.carousel .backward:after
+			{
+				left: -0.25em;
+				-moz-transform: scaleX(-1);
+				-webkit-transform: scaleX(-1);
+				-o-transform: scaleX(-1);
+				-ms-transform: scaleX(-1);
+				transform: scaleX(-1);
+    		}
+			
+			.carousel .forward:before
+			{
+				right: -3em;
+			}
+			
+			.carousel .backward:before
+			{
+				left: -3em;
+			}
+
+			.carousel .forward:hover:before,
+			.carousel .backward:hover:before
+			{
+				background-color: rgba(239,131,118, 0.75);
+			}
