@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <h1 class="page-header">Log In</h1>
+                </div>
+                <h1>Please log in to enjoy Events Finder to the fullest!</h1>
+            </div>
+            <div class="col-md-6">
+                <div class="well" style="margin-top: 50px">
+                    <form id="add-event-form" class="form-horizontal" method="POST">
+                        {% csrf_token %}
+                        <fieldset style="border: none;">
+                            <legend>To login with Facebook click <a class="btn btn-primary" href='{% url 'socialauth_begin' 'facebook' %}'>here</a></legend>
+{#                            <legend>To login with VK click <a class="btn btn-primary" href="{% url 'socialauth_begin' 'vk-oauth' %}">here</a></legend>#}
+                            {% if form.errors %}
+                                <div class="alert alert-dismissable alert-danger">
+                                    Your username and password didn't match. Please try again.
+                                </div>
+                            {% endif %}
+                            <div class="form-group">
+                                <label for="add-event-form-name" class="col-md-3 control-label">Email</label>
+                                <div class="col-md-9">
+                                    <input id="add-event-form-name" name="username" class="form-control" type="text" placeholder="user@example.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="add-event-form-description" class="col-md-3 control-label">Password</label>
+                                <div class="col-md-9" style="padding-bottom: 20px;">
+                                    <input id="add-event-form-description" name="password" class="form-control" type="password" placeholder="Password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-10 col-lg-offset-2">
+                                    <button class="btn btn-primary" type="submit" value="login">Log In</button>
+                                </div>
+                            </div>
+
+                            <input type="hidden" name="next" value="/manage/" />
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

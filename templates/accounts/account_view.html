@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block head-includes %}
+<link rel="stylesheet" type="text/css" href="/static/css/profile_view.css">
+{% endblock %}
+
+{% block content %}
+
+    <div id="manage-events" class="container" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            <h2>Welcome {{ user.username }}!</h2>
+        </div>
+        <div class="row">
+            <div class="container">
+                <div class="col-md-6">
+                    <div>
+                        <div class="col-md-3">
+                            <div class="profilepicture"> {% autoescape off %} {{ user.get_profile.image_tag }} {% endautoescape %} </div>
+
+                            <div class="mainuserclass col-md-8">
+                                <div class="nameclass label label-primary">Your Username: {{ user.username }} </div><br>
+                                <div class="nameclass label label-primary"> Your First Name: {{ user.first_name }} </div><br>
+                                <div class="nameclass label label-primary"> Your Last Name: {{ user.last_name }} </div><br>
+                                <div class="nameclass label label-primary"> Your Email: {{ user.email }} </div><br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">My HackaCities</h3>
+                        </div>
+                        <div class="panel-body">
+                            {% if hackacities %}
+                                {% for hackacity in hackacities %}
+                                    {% include "layouts/hackacity.html" with hackacity=hackacity %}
+                                {% endfor %}
+                            {% else %}
+                                <div class="well">
+                                    <p>You're still not part of any hackacity...</p>
+                                    <p>Why don't you start by <a href="/find">Joining one?</a></p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

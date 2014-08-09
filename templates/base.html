@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#">
+<head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="githack,hack,github,gamification,community,developers,programmers,alejandro saucedo, rewards" />
+    <meta property="og:url" content="http://githack.co/" />
+    <meta property="og:image" content="http://githack.co/static/home/img/hacka-globe.png" />
+    <meta property="og:title" content="GitHack" />
+    <meta property="og:description" content="GitHack adds gamification to GitHub!" />
+    <title>GitHack - Adding gamification to GitHub!</title>
+
+
+    <!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery-->
+    <script type="text/javascript" src="/static/js/external/jquery.min.js"></script>
+    <!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery--><!--JQuery-->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/external/Bootstrap.css">
+
+    <!--Bootstrap amelia theme-->
+    <link rel="stylesheet" href="/static/css/external/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/external/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/external/bootstrap-glyphicons.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/external/tagit.css">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/static/js/external/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/external/collapse.js"></script>
+    <script type="text/javascript" src="/static/js/external/transition.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <script type="text/javascript" src="/static/js/base.js"></script>
+
+    {% block head-includes %}{% endblock %}
+</head>
+<body>
+
+<div id="header">
+    <nav id='hackaglobal-nav-bar' class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul id="navbar-social" class="nav navbar-nav">
+                <li><a class="brand" href="https://www.facebook.com/HackaGlobal"><i style="font-size: 1.5em !important;" class="icon-facebook"></i></a></li>
+                <li><a href="http://www.twitter.com/hackaglobal"><i style="font-size: 1.5em !important;" class="icon-twitter"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{% url 'view_account' request.user.username %}">View Account</a></li>
+                            <li><a href="{% url 'edit_account' %}">Edit Account</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{% url 'logout' %}">Log Out</a></li>
+                        </ul>
+                    </li>
+                {% endif %}
+            </ul>
+
+{#            <form id="nav-search-form" class="navbar-form navbar-right" method="POST" action="/find/" role="search">#}
+{#                {% csrf_token %}#}
+{#                <input id="nav-find-event-tags" class="form-control hidden" type="text" name="tags">#}
+{#                <div id="nav-find-events-bar" class="col-md-10">#}
+{#                    <ul id="nav-find-event-search" style="border-radius: 5px; padding: 5px 10px 5px 10px; background-color: #d3d3d3" data-name="nameOfSelect"></ul>#}
+{#                </div>#}
+{#                <button id="nav-find-event-search-btn" type="submit" class="btn btn-default col-md-2">Find</button>#}
+{#            </form>#}
+
+            <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
+                {% if request.user.is_authenticated %}
+                    <li><a href="/find">Events</a></li>
+                    <li><a href="/create">Create</a></li>
+                    <li><a href="/manage">Manage</a></li>
+                {% else %}
+                    <li><a href="/accounts/login">Log In</a></li>
+                    <li><a href="/accounts/signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+<div id="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+</body>
+</html>
