@@ -26,3 +26,4 @@ def path_and_rename(path, type):
         return os.path.join(path, fname)
     return wrapper
 
+

@@ -12,8 +12,9 @@
 
 .badge {
     margin-bottom: 10px;
-    width: 30%;
     cursor: pointer;
+    background: transparent;
+    padding: 10px 10px 10px 10px;
 }
 
 .badge:hover > .badgeDesc {
@@ -60,4 +61,9 @@
 
 #sidebar {
     padding-left: 0 !important;
+}
+
+
+#level-exp div {
+    font-size: 1.5em;
 }

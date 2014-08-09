@@ -1,9 +1,12 @@
-from django.shortcuts import redirect, render_to_response
+from django.shortcuts import redirect, render_to_response, render
 from django.contrib.auth import login
-from django.contrib.auth.models import User
 from django.template.context import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+
+from githack.models import Badges
+from django.contrib.auth.models import User
+
 
 from githack.tools.forms import GHUserEditForm, GHPasswordChangeForm, GHUserCreationForm, GHProfileEditForm
 
@@ -33,7 +36,9 @@ def signup(request):
     return render_to_response('accounts/signup.html', { 'form': form, }, context_instance=RequestContext(request))
 
 def view_account(request, username):
-    return render_to_response('accounts/account_view.html', context_instance=RequestContext(request))
+    badges = Badges.objects.all()
+    return render(request, 'accounts/account_view.html', { 'badges': badges })
+#    return render_to_response('accounts/account_view.html',{ 'badges': badges }, context_instance=RequestContext(request))
 
 @login_required(login_url='/accounts/login/')
 def edit_account(request):

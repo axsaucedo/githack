@@ -16,6 +16,7 @@ class Badges(models.Model):
     description = models.TextField()
     type = models.IntegerField()
     value = models.IntegerField()
+
     image = models.ImageField(upload_to=path_and_rename('badges/', u'profile'), null=True, blank=True)
 
     def get_photo(self): return self.image.url if self.image else '/media/profiles/badgeplaceholder.jpg'
