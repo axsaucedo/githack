@@ -43,7 +43,7 @@ class Badges(models.Model):
         return self.name
 
 class Commit(models.Model):
-    user = models.OneToOneField(User, unique=True, null=True)
+    user = models.ForeignKey(User)
 
     datetime = models.DateTimeField(auto_now_add=True)
     timelength = models.DecimalField(decimal_places=2, max_digits=20)
