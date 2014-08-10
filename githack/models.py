@@ -84,7 +84,7 @@ class Commit(models.Model):
         self.user.save()
 
         print "SCORE!!<<<<<"
-        print score
+        print score.experience
         print calculate_experience(self.user.gitscore.level, self.linesadded, self.linesremoved, self.timelength, self.viminputsessions)
 
         return {"level":score.level, "progress":score.experience, "totalexp": experience_required(score.level), "levelup":levelup }
