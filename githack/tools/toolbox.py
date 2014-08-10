@@ -97,7 +97,11 @@ def check_badges(user):
     badges_2()
     badges_3()
     badges_4()
-    return all_badges
+
+    names_to_exclude = [o.name for o in user.gitscore.badges.all() ]
+    final_badges = Badges.objects.exclude(name__in=names_to_exclude)
+
+    return final_badges
 
 
 
