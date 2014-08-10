@@ -78,7 +78,7 @@ class Commit(models.Model):
         if score.experience > experience_required(score.level):
             levelup=True
             score.level = score.level + 1
-            score.experience =  score.experience % experience_required(score.level)
+            score.experience =  score.experience % experience_required(score.level-1)
 
         score.save()
         self.user.save()
