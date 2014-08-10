@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <meta http-equiv="REFRESH" content="0;url={% url 'view_my_account' %}">
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <h1 class="page-header">HTTP 500</h1>
+                </div>
+                <h1>Oops, sorry for that.</h1>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
