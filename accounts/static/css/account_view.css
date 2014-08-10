@@ -10,8 +10,17 @@
     width: 100%
 }
 
+#statistics-container {
+    margin-top: 50px;
+}
+
 #badges-container {
     min-width:400px;
+}
+
+.panel-body {
+    text-align: center;
+    padding: 0px 0px 0px 0px;
 }
 
 .badge {
@@ -120,5 +129,6 @@
 
 
 #level-exp div {
+    margin-top: 50px;
     font-size: 1.5em;
 }

@@ -67,6 +67,48 @@
                             <div class="progress-bar progress-bar-danger" style="width: {% divide user.gitscore.experience exp_points 15 as ten %}{{ ten }}%"></div>
                         </div>
                     </div>
+                    <div id="statistics-container" class="row">
+                        <div class="block">
+                            <div class="navbar navbar-inner block-header">
+                                <h1 class="muted pull-left">Statistics</h1>
+                                <div class="pull-right"><legend class="badge badge-warning">View More</legend>
+
+                                </div>
+                            </div>
+                            <div class="block-content collapse in">
+                                <div class="col-md-4">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Total Time</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h3>{{ user.gitscore.totaltime }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Total LoC</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h3>{{ user.gitscore.totalloc }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="panel panel-warning">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Total Commits</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <h3>{{ user.gitscore.totalcommits }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
