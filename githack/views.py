@@ -33,7 +33,7 @@ def usercommit(request):
     if new_levels['levelup']:
         text = text + os.popen('toilet --gay LEVEL UP!').read()
 
-    text = text + os.popen('\necho "\e[30;48;5;82mLevel: %i, Exp: %i / %i"\n' % (new_levels['level'], new_levels['progress'], new_levels['totalexp'])).read()
+    text = text + os.popen('\necho \e[30;48;5;82mLevel: %i, Exp: %i / %i\n' % (new_levels['level'], new_levels['progress'], new_levels['totalexp'])).read()
 
     response = {
         "text" : text,
