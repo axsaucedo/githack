@@ -56,6 +56,13 @@ class Commit(models.Model):
 
     def check_for_badges(self):
         badges = check_badges(self.user)
+        if badges:
+            print "WEREOUT"
+            print badges
+            for badge in badges:
+                self.user.gitscore.badges.add(badge)
+            self.user.save()
+
         return badges
 
     def check_for_level(self):
@@ -67,6 +74,7 @@ class Commit(models.Model):
         score.totalloc = score.totalloc + self.linesadded + self.linesremoved
         score.totalcommits = score.totalcommits + 1
         score.totaltime =  self.user.gitscore.totaltime + self.timelength
+
         if score.experience > experience_required(score.level):
             levelup=True
             score.level = score.level + 1
