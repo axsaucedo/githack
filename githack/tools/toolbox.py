@@ -96,6 +96,10 @@ def check_badges(user):
     final_ids = list(set(all_ids) - set(ids_to_exclude))
     final_badges = Badges.objects.filter(id__in=final_ids)
 
+    print all_ids
+    print ids_to_exclude
+    print final_ids
+
     return final_badges
 
 
