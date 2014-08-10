@@ -10,9 +10,7 @@ def is_obtained(context, user, badge):
     obtained = False
 
     try:
-        print "here"
         obtained = user.gitscore.badges.filter(id=badge.id).exists()
-        print obtained
 
     except Exception:
         pass
