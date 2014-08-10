@@ -64,7 +64,7 @@ def check_badges(user):
             print Badges.objects.filter(type=1, value__lt=user.gitscore.level).order_by('-value')
             closest_badge = Badges.objects.filter(type=1, value__lt=user.gitscore.level).order_by('-value')[0]
             print closest_badge
-            if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
         except:
             pass
@@ -76,7 +76,7 @@ def check_badges(user):
             print Badges.objects.filter(type=2, value__lt=user.gitscore.totalloc).order_by('-value')
             closest_badge = Badges.objects.filter(type=2, value__lt=user.gitscore.totalloc).order_by('-value')[0]
             print closest_badge
-            if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
         except:
             pass
@@ -88,7 +88,7 @@ def check_badges(user):
             print Badges.objects.filter(type=3, value__lt=user.gitscore.totaltime).order_by('-value')
             closest_badge = Badges.objects.filter(type=3, value__lt=user.gitscore.totaltime).order_by('-value')[0]
             print closest_badge
-            if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
         except:
             pass
@@ -100,7 +100,7 @@ def check_badges(user):
             print Badges.objects.filter(type=4, value__lt=user.gitscore.totalcommits).order_by('-value')
             closest_badge = Badges.objects.filter(type=4, value__lt=user.gitscore.totalcommits).order_by('-value')[0]
             print closest_badge
-            if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
         except:
             pass
