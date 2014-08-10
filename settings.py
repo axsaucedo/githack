@@ -137,6 +137,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+#    HackaGlobal Custom Middleware
+if not DEBUG:
+    MIDDLEWARE_CLASSES += ('hackaglobal.subdomains_middleware.RedirectMiddleware',)
+
 ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
