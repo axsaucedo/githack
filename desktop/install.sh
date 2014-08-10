@@ -13,7 +13,7 @@ cp ./githack /usr/bin/githack
 cp ./githack-init /usr/bin/githack-init
 cp ./libvimlib.so /usr/lib/libvimlib.so
 
-cat .vimrc >> ~/.vimrc
+cat vimrc >> ~/.vimrc
 
 echo "Please enter githack login:"
 read userlogin
