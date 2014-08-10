@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<base href="static/home/"></base>
+		<base href="/static/home/"></base>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
@@ -28,6 +28,7 @@
 		<noscript>
 			<link rel="stylesheet" href="css/skel.css" />
 			<link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/mystyle.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 			<link rel="stylesheet" href="css/style-noscript.css" />
 		</noscript>
@@ -36,6 +37,28 @@
 
 	<body class="homepage">
 
+    <style>
+
+        #nav {
+            color: white;
+        }
+
+
+        .profileContainer {
+            max-width:800px;
+            margin: 0 auto;
+        }
+
+        .brands {
+        }
+
+        .brands img {
+        }
+
+        .brands img {
+        }
+
+    </style>
 		<!-- Header -->
 			<div id="header" style="background-size: cover; background-position: right">
 						
@@ -70,13 +93,15 @@
 					</div>
 				
 				<!-- Nav -->
-					<nav id="nav">
-						<ul>
-							<li><a href="/accounts/login/">Login</a></li>
-							<li><a href="/accounts/signup/">Signup</a></li>
-							<!--<li><a href="no-sidebar.html">No Sidebar</a></li> -->
-						</ul>
-					</nav>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="/accounts/login">Login</a></li>
+                <li><a href="/accounts/signup">Signup</a></li>
+                <li><a href="/download/">Download</a></li>
+            </ul>
+        </nav>
 
 			</div>
 			
@@ -112,7 +137,7 @@
 					</article>			
 				
 					<article>
-						<div href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></div>
+						<div href="#" class="image featured"><img src="images/badges.png" alt="" /></div>
 						<header>
 							<h3>Win awesome rewards!</h3>
 						</header>
@@ -135,6 +160,17 @@
 
 			</div> -->
 
+        <section id="banner">
+            <header>
+                <h2>Big brands trust GitHack</h2>
+
+                <div class="brands ">
+                    <img src="images/voximplant_logo.svg">
+                    <img src="images/lunacloud_logo.png">
+                </div>
+
+            </header>
+        </section>
 		<!-- Footer -->
 			<div id="footer">
 				<div class="container">
