@@ -1,10 +1,10 @@
-var account_view = {
-    init : function() {
-        alert("hello")
-    }
-};
-
-
-$(function() {
-    account_view.init();
-});
+//var account_view = {
+//    init : function() {
+//
+//    }
+//};
+//
+//
+//$(function() {
+//    account_view.init();
+//});
