@@ -11,5 +11,6 @@ urlpatterns = patterns('',
 #    Account management
     url(r'^edit/password/$', views.edit_password, name='edit_password'),
     url(r'^edit/$', views.edit_account, name='edit_account'),
-    url(r'^view/(?P<username>.+)/$', views.view_account, name='view_account'),
+    url(r'^view/$', views.view_account, name='view_my_account'),
+    url(r'^view/(?P<username>.*)/$', views.view_account, name='view_account'),
 )

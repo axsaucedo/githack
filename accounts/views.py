@@ -35,9 +35,19 @@ def signup(request):
 
     return render_to_response('accounts/signup.html', { 'form': form, }, context_instance=RequestContext(request))
 
-def view_account(request, username):
+def view_account(request, username=None):
+    user = None
+
+    if not username:
+        user = request.user
+    else:
+        try:
+            user = User.objects.get(username=username)
+        except:
+            return redirect('/404/')
+
     badges = Badges.objects.all()
-    return render(request, 'accounts/account_view.html', { 'badges': badges })
+    return render(request, 'accounts/account_view.html', { 'badges': badges, 'user' : user })
 #    return render_to_response('accounts/account_view.html',{ 'badges': badges }, context_instance=RequestContext(request))
 
 @login_required(login_url='/accounts/login/')

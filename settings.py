@@ -182,7 +182,7 @@ SOCIAL_AUTH_PIPELINE = (
 )
 
 LOGIN_URL          = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/accounts/edit/'
+LOGIN_REDIRECT_URL = '/accounts/view/'
 LOGIN_ERROR_URL    = '/accounts/login/'
 
 GITHUB_APP_ID               = '85db5680254e344f7dfc'

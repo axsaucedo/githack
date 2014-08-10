@@ -9,16 +9,16 @@
     {% load gh_tags %}
 
     <div id="manage-events" class="container" xmlns="http://www.w3.org/1999/html">
-        <div class="row">
-            <h2>Welcome {{ user.username }}!</h2>
-        </div>
+{#        <div class="row">#}
+{#            <h2>Welcome {{ user.username }}!</h2>#}
+{#        </div>#}
         <div class="row">
             <div class="container">
 
                 <div class="col-md-6">
                     <div class="panel panel-danger">
                         <div class="panel-heading">
-                            <h3 class="panel-title">My HackaCities</h3>
+                            <h3 class="panel-title">My badges</h3>
                         </div>
                         <div class="panel-body">
                             <div class="row">
@@ -26,7 +26,8 @@
 
                                     {% is_obtained user badge as obtained %}
                                     <div class="special badge{% if not obtained %} disabled{% endif %} col-md-4">
-                                        <div class="badgeDesc">{{ badge.name }}</div>
+                                        <div class="badgeTitle">{{ badge.name }}</div>
+                                        <div class="badgeDesc ">{{ badge.description }}</div>
                                         <div class="clear"></div>
                                         <img src="{{ badge.get_photo }}" alt="">
                                     </div>
