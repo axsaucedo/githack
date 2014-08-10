@@ -26,13 +26,15 @@ def usercommit(request):
 
     os.environ['PATH'] += os.pathsep + '/usr/local/bin/'
 
-    if new_levels['levelup']:
-        text = os.popen('toilet --metal NEW LEVEL %i' % new_levels['level']).read()
-        text = text + "\n" + os.popen('toilet --metal Exp. %i / %i' % (new_levels['progress'], new_levels['totalexp'])).read()
-    else:
-        text = "level %i, progress %i / %i" % (new_levels['level'], new_levels['progress'], new_levels['totalexp'])
+    text = ""
     for badge in new_badges:
-        text = text + "\n" + badge.textimage + "\n you acquired '%s' badge!\n" % badge.name
+        text = text + "\n" + badge.textimage + "\n Congratulations!! You've acquired '%s'!!\n" % badge.name
+
+    if new_levels['levelup']:
+        text = text + os.popen('toilet --gay LEVEL UP!').read()
+
+    text = text + "\n\e[42mLevel: %i, Exp: %i / %i\n" % (new_levels['level'], new_levels['progress'], new_levels['totalexp'])
+
     response = {
         "text" : text,
     }
