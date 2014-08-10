@@ -19,11 +19,6 @@ def usercommit(request):
     obj.user =user
     obj.save()
 
-
-
-
-
-
     new_levels = obj.check_for_level()
     new_badges = obj.check_for_badges()
 
