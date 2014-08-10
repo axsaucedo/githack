@@ -48,6 +48,6 @@ def usercommit(request):
         else:
             response = { "text" : "\x1b[42;30mYour account has been suspended - please contact the team for any questions.\033[0m", }
     else:
-        response = { "text" : "\x1b[42;30mThe username and password provided did not match any user in our system. GitHub will still work as expected ;)\033[0m", }
+        response = { "text" : "\x1b[42;30mThe username and password provided did not match any user in our system. \nGitHub will still work as expected ;)\033[0m", }
 
     return HttpResponse(json.dumps(response), content_type="application/json")
