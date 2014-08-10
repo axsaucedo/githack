@@ -17,6 +17,8 @@ def usercommit(request):
     username = data['user']
     password = data['password']
 
+    print username, password
+
     user = authenticate(username=username, password=password)
     if user is not None:
         # the password verified for the user
