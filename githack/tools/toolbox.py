@@ -55,14 +55,12 @@ def check_badges(user):
 
     from githack.models import Badges
 
-    all_badges = []
+    all_ids = ()
 
     def badges_1():
         try:
             closest_badge = Badges.objects.filter(type=1, value__lt=user.gitscore.level).order_by('-value')
-            print user.gitscore.level
-            print closest_badge
-            all_badges.extend(closest_badge)
+            all_ids.extend([o.id for o in closest_badge ])
 
         except:
             pass
@@ -70,21 +68,21 @@ def check_badges(user):
     def badges_2():
         try:
             closest_badge = Badges.objects.filter(type=2, value__lt=user.gitscore.totalloc).order_by('-value')
-            all_badges.extend(closest_badge)
+            all_ids.extend([o.id for o in closest_badge ])
         except:
             pass
 
     def badges_3():
         try:
             closest_badge = Badges.objects.filter(type=3, value__lt=user.gitscore.totaltime).order_by('-value')
-            all_badges.extend(closest_badge)
+            all_ids.extend([o.id for o in closest_badge ])
         except:
             pass
 
     def badges_4():
         try:
             closest_badge = Badges.objects.filter(type=4, value__lt=user.gitscore.totalcommits).order_by('-value')
-            all_badges.extend(closest_badge)
+            all_ids.extend([o.id for o in closest_badge ])
         except:
             pass
 
@@ -93,12 +91,10 @@ def check_badges(user):
     badges_3()
     badges_4()
 
-    names_to_exclude = [o.name for o in user.gitscore.badges.all() ]
-    final_badges = Badges.objects.exclude(name__in=names_to_exclude)
+    ids_to_exclude = [o.id for o in user.gitscore.badges.all() ]
 
-    print "WEREIN"
-    print all_badges
-    print final_badges
+    final_ids = list(set(all_ids) - set(ids_to_exclude))
+    final_badges = Badges.objects.filter(id__in=final_ids)
 
     return final_badges
 
