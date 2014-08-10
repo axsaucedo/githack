@@ -57,8 +57,7 @@ class Commit(models.Model):
     def check_for_badges(self):
         badges = check_badges(self.user)
         if badges:
-            print "WEREOUT"
-            print badges
+            print "badges"
             for badge in badges:
                 self.user.gitscore.badges.add(badge)
             self.user.save()
