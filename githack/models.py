@@ -57,8 +57,6 @@ class Commit(models.Model):
     def check_for_badges(self):
         badges = check_badges(self.user)
         if badges:
-            print "badges"
-
             for badge in badges:
                 self.user.gitscore.badges.add(badge)
             self.user.save()
@@ -82,10 +80,5 @@ class Commit(models.Model):
 
         score.save()
         self.user.save()
-
-        print "SCORE!!<<<<<"
-        print score.experience
-        print experience_required(score.level)
-        print calculate_experience(self.user.gitscore.level, self.linesadded, self.linesremoved, self.timelength, self.viminputsessions)
 
         return {"level":score.level, "progress":score.experience, "totalexp": experience_required(score.level), "levelup":levelup }
