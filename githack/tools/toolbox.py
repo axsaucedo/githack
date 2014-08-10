@@ -55,7 +55,7 @@ def check_badges(user):
 
     from githack.models import Badges
 
-    all_ids = ()
+    all_ids = []
 
     def badges_1():
         try:
@@ -82,6 +82,7 @@ def check_badges(user):
     def badges_4():
         try:
             closest_badge = Badges.objects.filter(type=4, value__lt=user.gitscore.totalcommits).order_by('-value')
+            print closest_badge
             all_ids.extend([o.id for o in closest_badge ])
         except:
             pass
@@ -91,7 +92,7 @@ def check_badges(user):
     badges_3()
     badges_4()
 
-    ids_to_exclude = [o.id for o in user.gitscore.badges.all() ]
+    ids_to_exclude = [ o.id for o in user.gitscore.badges.all() ]
 
     final_ids = list(set(all_ids) - set(ids_to_exclude))
     final_badges = Badges.objects.filter(id__in=final_ids)
