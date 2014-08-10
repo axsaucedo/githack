@@ -60,6 +60,8 @@ def check_badges(user):
     def badges_1():
         try:
             print "trying 1"
+            print user.gitscore.level
+            print Badges.objects.filter(value__lt=user.gitscore.level).order_by('-value')
             closest_badge = Badges.objects.filter(type=1, value__lt=user.gitscore.level).order_by('-value')[0]
             print closest_badge
             if user.gitscore.badges.filter(id=closest_badge.id).exists():
@@ -70,7 +72,9 @@ def check_badges(user):
     def badges_2():
         try:
             print "trying 2"
-            closest_badge = Badges.objects.filter(value__lt=user.totalloc).order_by('-value')[0]
+            print user.gitscore.totalloc
+            print Badges.objects.filter(value__lt=user.gitscore.totalloc).order_by('-value')
+            closest_badge = Badges.objects.filter(value__lt=user.gitscore.totalloc).order_by('-value')[0]
             print closest_badge
             if user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
@@ -80,7 +84,9 @@ def check_badges(user):
     def badges_3():
         try:
             print "trying 3"
-            closest_badge = Badges.objects.filter(value__lt=user.totaltime).order_by('-value')[0]
+            print user.gitscore.totaltime
+            print Badges.objects.filter(value__lt=user.gitscore.totaltime).order_by('-value')
+            closest_badge = Badges.objects.filter(value__lt=user.gitscore.totaltime).order_by('-value')[0]
             print closest_badge
             if user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
@@ -90,7 +96,9 @@ def check_badges(user):
     def badges_4():
         try:
             print "trying 4"
-            closest_badge = Badges.objects.filter(value__lt=user.totalcommits).order_by('-value')[0]
+            print user.gitscore.totalcommits
+            print Badges.objects.filter(value__lt=user.gitscore.totalcommits).order_by('-value')
+            closest_badge = Badges.objects.filter(value__lt=user.gitscore.totalcommits).order_by('-value')[0]
             print closest_badge
             if user.gitscore.badges.filter(id=closest_badge.id).exists():
                 all_badges.append(closest_badge)
