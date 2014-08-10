@@ -63,6 +63,7 @@ def check_badges(user):
             print user.gitscore.level
             print closest_badge
             all_badges.extend(closest_badge)
+
         except:
             pass
 
