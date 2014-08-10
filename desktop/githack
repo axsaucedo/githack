@@ -69,8 +69,7 @@ data = json.dumps({
     "password" : password,
 })
 # do POST
-#url_2 = 'http://66111ff0.ngrok.com/usercommit/'
-url_2 = 'http://127.0.0.1:8080/usercommit/'
+url_2 = 'http://66111ff0.ngrok.com/usercommit/'
 req = urllib2.Request(url_2, data, headers={'Content-Type': 'application/json'})
 rsp = urllib2.urlopen(req)
 content = rsp.read()
