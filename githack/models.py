@@ -15,6 +15,9 @@ class GitScore(models.Model):
 
     badges = models.ManyToManyField('Badges')
 
+    def __str__(self):
+        return self.user.username
+
 
 class Badges(models.Model):
     name = models.CharField(max_length=50)
