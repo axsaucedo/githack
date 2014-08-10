@@ -139,7 +139,7 @@ MIDDLEWARE_CLASSES = (
 
 #    HackaGlobal Custom Middleware
 if not DEBUG:
-    MIDDLEWARE_CLASSES += ('hackaglobal.subdomains_middleware.RedirectMiddleware',)
+    MIDDLEWARE_CLASSES += ('githack.subdomains_middleware.RedirectMiddleware',)
 
 ROOT_URLCONF = 'urls'
 
