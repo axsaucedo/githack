@@ -1,9 +1,8 @@
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 import json
-from django.contrib.auth.models import User
 
-from githack.models import Commit
+from githack.models import Commit, Badges
 import os
 
 def usercommit(request):
@@ -22,6 +21,10 @@ def usercommit(request):
 
     new_levels = obj.check_for_level()
     new_badges = obj.check_for_badges()
+    new_levels = {
+        {"level":2, "progress":100, "totalexp": 300, "levelup":True }
+    }
+    new_badges = Badges.objects.all()[1:3]
 
     os.environ['PATH'] += os.pathsep + '/usr/local/bin/'
 

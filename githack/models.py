@@ -48,14 +48,14 @@ class Commit(models.Model):
     viminputsessions = models.IntegerField(default=1)
 
     def check_for_badges(self):
-        if self.linesadded==1 and self.linesremoved==1:
-            return [{"name":"sniper fix"}]
-        return []
+
+
+        return { "badges" : [] }
 
     def check_for_level(self):
         levelup=False
 
-        self.user.gitscore.experience += calculate_experience(self.linesadded, self.linesremoved, self.time, self.viminputsessions)
+        self.user.gitscore.experience = self.user.gitscore.experience + calculate_experience(self.linesadded, self.linesremoved, self.time, self.viminputsessions)
         if self.user.gitscore.experience > experience_required(self.user.gitscore.level):
             levelup=True
             self.user.gitscore.level = self.user.gitscore.level + 1
