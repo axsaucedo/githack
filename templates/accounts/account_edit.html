@@ -34,21 +34,21 @@
                             <label for="edit-profile-photo" class="col-md-3 control-label">Profile Photo</label>
                             <div class="col-md-9">
                                 <input id="edit-profile-photo" class="form-control" value="" name="photo" type="file">
-                                <a style="float: right;" href="" class="hacka-popover-text" rel="popover" data-html="true" data-content="<img src='{% if request.user.profile.photo %}{{ request.user.profile.photo.url }}{% endif %}'/>" data-title="Logo - Image Preview" data-trigger="hover">Preview</a>
+                                <a style="float: right;" href="" class="hacka-popover-text" rel="popover" data-html="true" data-content="<img src='{% if user.profile.photo %}{{ user.profile.photo.url }}{% endif %}'/>" data-title="Logo - Image Preview" data-trigger="hover">Preview</a>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="add-event-form-first-name" class="col-md-3 control-label">First Name</label>
                             <div class="col-md-9">
-                                <input id="add-event-form-first-name" name="first_name" class="form-control" type="text" placeholder="First Name" value="{{ request.user.first_name }}">
+                                <input id="add-event-form-first-name" name="first_name" class="form-control" type="text" placeholder="First Name" value="{{ user.first_name }}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="add-event-form-last-name" class="col-md-3 control-label">Last Name</label>
                             <div class="col-md-9">
-                                <input id="add-event-form-last-name" name="last_name" class="form-control" type="text" placeholder="Last Name" value="{{ request.user.last_name }}">
+                                <input id="add-event-form-last-name" name="last_name" class="form-control" type="text" placeholder="Last Name" value="{{ user.last_name }}">
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <label for="add-event-form-title" class="col-md-3 control-label">Title/Position</label>
                             <div class="col-md-9">
-                                <input id="add-event-form-title" name="title" class="form-control" type="text" placeholder="e.g. Software engineer, evangelist, etc." value="{{ request.user.profile.title }}">
+                                <input id="add-event-form-title" name="title" class="form-control" type="text" placeholder="e.g. Software engineer, evangelist, etc." value="{{ user.profile.title }}">
                             </div>
                         </div>
 
@@ -65,7 +65,7 @@
                         <div class="form-group">
                             <label for="add-event-form-description" class="col-md-3 control-label">Short Description</label>
                             <div class="col-md-9">
-                                <input id="add-event-form-description" name="description" class="form-control" type="text" placeholder="I am a passionate and enthusiastic..." value="{{ request.user.profile.description }}">
+                                <input id="add-event-form-description" name="bio" class="form-control" type="text" placeholder="I am a passionate and enthusiastic..." value="{{ user.profile.description }}">
                             </div>
                         </div>
                     </fieldset>
@@ -76,27 +76,27 @@
                             <div class="form-group">
                                 <label for="add-event-form-email" class="col-md-3 control-label">Email</label>
                                 <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-email" name="username" class="form-control"  value="{{ request.user.username }}" disabled>
+                                    <input id="add-event-form-email" name="email" class="form-control"  value="{{ user.email }}">
                                 </div>
 
                                 <label for="add-event-form-facebook" class="col-md-3 control-label">Facebook URL</label>
                                 <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-facebook" name="facebook" class="form-control"  value="{{ request.user.profile.facebook }}">
+                                    <input id="add-event-form-facebook" name="facebook" class="form-control"  value="{{ user.profile.facebook }}">
                                 </div>
 
                                 <label for="add-event-form-twitter" class="col-md-3 control-label">Twitter URL</label>
                                 <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-twitter" name="twitter" class="form-control"  value="{{ request.user.profile.twitter }}">
+                                    <input id="add-event-form-twitter" name="twitter" class="form-control"  value="{{ user.profile.twitter }}">
                                 </div>
 
                                 <label for="add-event-form-github" class="col-md-3 control-label">Github URL</label>
                                 <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-github" name="github" class="form-control"  value="{{ request.user.profile.github }}">
+                                    <input id="add-event-form-github" name="github" class="form-control"  value="{{ user.profile.github }}">
                                 </div>
 
                                 <label for="add-event-form-linkedin" class="col-md-3 control-label">Linkedin URL</label>
                                 <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-linkedin" name="linkedin" class="form-control"  value="{{ request.user.profile.linkedin }}">
+                                    <input id="add-event-form-linkedin" name="linkedin" class="form-control"  value="{{ user.profile.linkedin }}">
                                 </div>
 
                                 <div class="col-lg-10 col-lg-offset-2">

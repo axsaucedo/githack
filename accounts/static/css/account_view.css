@@ -10,18 +10,25 @@
     width: 100%
 }
 
+#badges-container {
+    min-width:400px;
+}
+
 .badge {
     margin-bottom: 37px;
     cursor: pointer;
     padding: 20px 20px 20px 20px;
     background: transparent;
     white-space: normal !important;
+    max-widh: 140px;
 }
 
 .badge img{
     /*width: 110px !important;
     height: 110px;*/
-    width: 100%
+    width: 100%;
+    max-width: 140px;
+    max-height: 140px;
 }
 
 .badgeTitle, .badgeDesc {

@@ -82,7 +82,6 @@ def check_badges(user):
     def badges_4():
         try:
             closest_badge = Badges.objects.filter(type=4, value__lt=user.gitscore.totalcommits).order_by('-value')
-            print closest_badge
             all_ids.extend([o.id for o in closest_badge ])
         except:
             pass
@@ -96,10 +95,6 @@ def check_badges(user):
 
     final_ids = list(set(all_ids) - set(ids_to_exclude))
     final_badges = Badges.objects.filter(id__in=final_ids)
-
-    print all_ids
-    print ids_to_exclude
-    print final_ids
 
     return final_badges
 

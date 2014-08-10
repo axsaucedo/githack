@@ -15,7 +15,7 @@
         <div class="row">
             <div class="container">
 
-                <div class="col-md-6">
+                <div id="badges-container" class="col-md-6">
                     <div class="panel panel-danger">
                         <div class="panel-heading">
                             <h3 class="panel-title">My badges</h3>
@@ -39,15 +39,15 @@
                 </div>
                 <div class="col-md-6">
                     <div class="row well">
-                        <div class="col-md-6">
-                            <div class="mainuserclass col-md-8">
-                                <div class="nameclass label label-primary">Your Username: {{ user.username }} </div><br>
-                                <div class="nameclass label label-primary"> Your First Name: {{ user.first_name }} </div><br>
-                                <div class="nameclass label label-primary"> Your Last Name: {{ user.last_name }} </div><br>
-                                <div class="nameclass label label-primary"> Your Email: {{ user.email }} </div><br>
+                        <div class="col-md-7">
+                            <div class="mainuserclass col-md-12">
+                                <div class="nameclass label label-primary">Username: {{ user.username }} </div><br>
+                                <div class="nameclass label label-primary"> {{ user.profile.get_full_name }} </div><br>
+                                {% if user.profile.title %}<div class="nameclass label label-primary"> {{ user.profile.title }} </div><br>{% endif %}
+                                {% if user.profile.bio %}<div style="margin-top: 5px; margin-bottom: -20px; width:100%" class="well"> {{ user.profile.bio|truncatechars:80 }} </div><br>{% endif %}
                             </div>
                         </div>
-                        <div class="col-md-6" style="text-align: right;">
+                        <div class="col-md-2">
                             <div class="profilepicture"> {% autoescape off %} {{ user.get_profile.image_tag }} {% endautoescape %} </div>
                         </div>
                     </div>
