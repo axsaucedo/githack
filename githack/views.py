@@ -20,6 +20,7 @@ def usercommit(request):
     print username, password
 
     user = authenticate(username=username, password=password)
+    print user
     if user is not None:
         # the password verified for the user
         if user.is_active:
