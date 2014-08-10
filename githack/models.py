@@ -39,7 +39,7 @@ class Badges(models.Model):
         imgf.flush()
         tf = tempfile.NamedTemporaryFile()
         os.popen("convert %s %s" % (imgf.name,tf.name+".jpg"))
-        self.textimage = os.popen("jp2a --colors --height=10 --width=10 %s" % (tf.name+".jpg")).read()
+        self.textimage = os.popen("jp2a --colors --size=60x60 %s" % (tf.name+".jpg")).read()
         super(Badges,self).save(*args,**kwargs)
 
     def __str__(self):
