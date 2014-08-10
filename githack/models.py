@@ -58,6 +58,7 @@ class Commit(models.Model):
         badges = check_badges(self.user)
         if badges:
             print "badges"
+
             for badge in badges:
                 self.user.gitscore.badges.add(badge)
             self.user.save()
