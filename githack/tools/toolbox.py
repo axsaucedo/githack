@@ -60,8 +60,8 @@ def check_badges(user):
     def badges_1():
         try:
             closest_badge = Badges.objects.filter(type=1, value__lt=user.gitscore.level).order_by('-value')
-#            print closest_badge
-#            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
+            print user.gitscore.level
+            print closest_badge
             all_badges.extend(closest_badge)
         except:
             pass
@@ -69,8 +69,6 @@ def check_badges(user):
     def badges_2():
         try:
             closest_badge = Badges.objects.filter(type=2, value__lt=user.gitscore.totalloc).order_by('-value')
-#            print closest_badge
-#            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
             all_badges.extend(closest_badge)
         except:
             pass
@@ -78,8 +76,6 @@ def check_badges(user):
     def badges_3():
         try:
             closest_badge = Badges.objects.filter(type=3, value__lt=user.gitscore.totaltime).order_by('-value')
-#            print closest_badge
-#            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
             all_badges.extend(closest_badge)
         except:
             pass
@@ -87,8 +83,6 @@ def check_badges(user):
     def badges_4():
         try:
             closest_badge = Badges.objects.filter(type=4, value__lt=user.gitscore.totalcommits).order_by('-value')
-#            print closest_badge
-#            if not user.gitscore.badges.filter(id=closest_badge.id).exists():
             all_badges.extend(closest_badge)
         except:
             pass
