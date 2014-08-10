@@ -83,3 +83,12 @@ class Commit(models.Model):
         self.user.save()
 
         return {"level":score.level, "progress":score.experience, "totalexp": experience_required(score.level), "levelup":levelup }
+
+
+class Subdomain(models.Model):
+    """A model for managing subdomains and the URLs to which they redirect."""
+    name = models.SlugField(max_length=200, unique=True)
+    url = models.CharField(max_length=400, verbose_name="URL")
+
+    def __unicode__(self):
+        return self.name + " - " + self.url
