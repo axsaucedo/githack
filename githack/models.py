@@ -53,21 +53,26 @@ class Commit(models.Model):
 
     def check_for_badges(self):
         badges = check_badges(self.user)
-        return { "badges" : badges }
+        return badges
 
     def check_for_level(self):
         levelup=False
 
-        self.user.gitscore.experience = self.user.gitscore.experience + calculate_experience(self.user.gitscore.level, self.linesadded, self.linesremoved, self.timelength, self.viminputsessions)
-        self.user.gitscore.totalloc = self.user.gitscore.totalloc + self.linesadded + self.linesremoved
-        self.user.gitscore.totalcommits = self.user.gitscore.totalcommits + 1
-        self.user.gitscore.totaltime =  self.user.gitscore.totaltime + self.timelength
-        if self.user.gitscore.experience > experience_required(self.user.gitscore.level):
+        score = self.user.gitscore
+
+        score.experience = score.experience + calculate_experience(self.user.gitscore.level, self.linesadded, self.linesremoved, self.timelength, self.viminputsessions)
+        score.totalloc = score.totalloc + self.linesadded + self.linesremoved
+        score.totalcommits = score.totalcommits + 1
+        score.totaltime =  self.user.gitscore.totaltime + self.timelength
+        if score.experience > experience_required(score.level):
             levelup=True
-            self.user.gitscore.level = self.user.gitscore.level + 1
-            self.user.gitscore.experience=0
+            score.level = score.level + 1
+            score.experience =  score.experience % experience_required(score.level)
 
+        score.save()
         self.user.save()
-        self.user.gitscore.save()
 
-        return {"level":self.user.gitscore.level, "progress":self.user.gitscore.experience, "levelup":levelup }
+        print score
+        print calculate_experience(self.user.gitscore.level, self.linesadded, self.linesremoved, self.timelength, self.viminputsessions)
+
+        return {"level":score.level, "progress":score.experience, "totalexp": experience_required(score.level), "levelup":levelup }

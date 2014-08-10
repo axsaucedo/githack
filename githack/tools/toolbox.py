@@ -47,7 +47,8 @@ def experience_required(level):
 
 
 def calculate_experience(level, linesadded, linesremoved, time, inputsessions):
-    return int(min(linesadded+linesremoved, time*7.5)*1.2**(level-1))
+#    return int(min(linesadded+linesremoved, time*7.5)*1.2**(level-1))
+    return int((linesadded+linesremoved)*1.2**(level-1))
 
 
 def check_badges(user):
