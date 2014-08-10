@@ -1,13 +1,17 @@
 import tempfile,os
 from django.db import models
 from django.contrib.auth.models import User
-from githack.tools.toolbox import path_and_rename, calculate_experience, experience_required
+from githack.tools.toolbox import path_and_rename, calculate_experience, experience_required, check_badges
 
 class GitScore(models.Model):
     user = models.OneToOneField(User, unique=True)
 
     level = models.IntegerField(default=1)
     experience = models.BigIntegerField(default=0)
+
+    totalloc = models.IntegerField(default=0)
+    totaltime = models.IntegerField(default=0)
+    totalcommits = models.IntegerField(default=0)
 
     badges = models.ManyToManyField('Badges')
 
@@ -48,14 +52,16 @@ class Commit(models.Model):
     viminputsessions = models.IntegerField(default=1)
 
     def check_for_badges(self):
-
-
-        return { "badges" : [] }
+        badges = check_badges(self.user)
+        return { "badges" : badges }
 
     def check_for_level(self):
         levelup=False
 
         self.user.gitscore.experience = self.user.gitscore.experience + calculate_experience(self.linesadded, self.linesremoved, self.time, self.viminputsessions)
+        self.user.gitscore.totalloc = self.user.gitscore.totalloc + self.linesadded + self.linesremoved
+        self.user.gitscore.totalcommits = self.user.gitscore.totalcommits + 1
+        self.user.gitscore.totaltime =  self.user.gitscore.totaltime + self.time
         if self.user.gitscore.experience > experience_required(self.user.gitscore.level):
             levelup=True
             self.user.gitscore.level = self.user.gitscore.level + 1

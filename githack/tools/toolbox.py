@@ -48,3 +48,39 @@ def experience_required(level):
 
 def calculate_experience(level, linesadded, linesremoved, time, inputsessions):
     return int(min(linesadded+linesremoved, time*7.5)*1.2**(level-1))
+
+
+def check_badges(user):
+
+    from githack.models import Badges
+
+    all_badges = []
+
+    def badges_1():
+        closest_badge = Badges.objects.filter(type=1, value__lt=user.level).order_by('-value')[0]
+        if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            all_badges.append(closest_badge)
+
+    def badges_2():
+        closest_badge = Badges.objects.filter(value__lt=user.totalloc).order_by('-value')[0]
+        if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            all_badges.append(closest_badge)
+
+    def badges_3():
+        closest_badge = Badges.objects.filter(value__lt=user.totaltime).order_by('-value')[0]
+        if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            all_badges.append(closest_badge)
+
+    def badges_4():
+        closest_badge = Badges.objects.filter(value__lt=user.totalcommits).order_by('-value')[0]
+        if user.gitscore.badges.filter(id=closest_badge.id).exists():
+            all_badges.append(closest_badge)
+
+    badges_1()
+    badges_2()
+    badges_3()
+    badges_4()
+    return all_badges
+
+
+
