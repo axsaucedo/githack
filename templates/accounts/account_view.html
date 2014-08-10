@@ -52,11 +52,12 @@
                         </div>
                     </div>
                     {% experience_points user.gitscore.level as exp_points %}
+                <div class="col-md-11 col-md-offset-1">
                     <div id="level-exp" class="row">
                         <div class="col-md-offset-1 col-md-4 alert alert-danger alert-info"
                             <span>Level: </span><span>{{ user.gitscore.level }}</span>
                         </div>
-                        <div class="col-md-offset-1 col-md-5 alert alert-dismissable alert-info"
+                        <div class="col-md-6 alert alert-dismissable alert-info" style="text-align: right">
                             <span>Exp: </span><span>{{ user.gitscore.experience }} / {{ exp_points }}</span>
                         </div>
                     </div>
@@ -79,7 +80,7 @@
                                 <div class="col-md-4">
                                     <div class="panel panel-primary">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Total Time</h3>
+                                            <h3 class="panel-title">Code Time</h3>
                                         </div>
                                         <div class="panel-body">
                                             <h3>{{ user.gitscore.totaltime }}</h3>
@@ -89,7 +90,7 @@
                                 <div class="col-md-4">
                                     <div class="panel panel-success">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Total LoC</h3>
+                                            <h3 class="panel-title">LoC</h3>
                                         </div>
                                         <div class="panel-body">
                                             <h3>{{ user.gitscore.totalloc }}</h3>
@@ -99,7 +100,7 @@
                                 <div class="col-md-4">
                                     <div class="panel panel-warning">
                                         <div class="panel-heading">
-                                            <h3 class="panel-title">Total Commits</h3>
+                                            <h3 class="panel-title">Commits</h3>
                                         </div>
                                         <div class="panel-body">
                                             <h3>{{ user.gitscore.totalcommits }}</h3>
@@ -111,6 +112,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 
