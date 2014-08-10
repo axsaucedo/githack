@@ -42,6 +42,7 @@ class Badges(models.Model):
         self.textimage = os.popen("jp2a --colors --height=15 %s" % (tf.name+".jpg")).read()
         super(Badges,self).save(*args,**kwargs)
 
+
     def __str__(self):
         return self.name
 
