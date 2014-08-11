@@ -137,9 +137,12 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-#    HackaGlobal Custom Middleware
+#  GitHack Custom Middleware
 if not DEBUG:
-    MIDDLEWARE_CLASSES += ('githack.subdomains_middleware.RedirectMiddleware',)
+    MIDDLEWARE_CLASSES += ('githack.githack_middleware.SubdomainMiddleware',)
+MIDDLEWARE_CLASSES += (
+    'githack.githack_middleware.UsersRedirectMiddleware',
+)
 
 ROOT_URLCONF = 'urls'
 

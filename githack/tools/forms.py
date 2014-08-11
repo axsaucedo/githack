@@ -115,6 +115,7 @@ class GHPasswordChangeForm(forms.Form):
 
     def clean_new_password(self):
         password = self.cleaned_data.get("old_password")
+
         if not self.user.check_password(password):
             raise forms.ValidationError(self.error_messages['invalid_password'])
 
