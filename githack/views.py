@@ -7,6 +7,9 @@ from django.contrib.auth import authenticate
 
 import os
 
+
+from django.views.decorators.http import require_POST
+@require_POST
 def usercommit(request):
 
 #    This is required to use the libraries like toilet, etc
