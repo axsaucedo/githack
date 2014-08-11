@@ -3,6 +3,7 @@ GitHack
 
 GitHack is a social gamification platform for GitHub 
 
+
 Client prerequisites
 ====================
 Install git, gcc, python and vim
