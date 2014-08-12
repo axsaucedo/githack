@@ -5,7 +5,6 @@ from accounts.models import UserProfile
 class GitScoreAdmin(ModelAdmin):
     list_display = ['user', 'level', 'experience', 'badges_str']
 
-
 site.register(GitScore, GitScoreAdmin)
 site.register(Commit)
 site.register(Subdomain)
