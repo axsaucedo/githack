@@ -26,34 +26,9 @@ class UsersRedirectMiddleware(object):
                     return redirect('/accounts/login/?next=%s' % path)
                 else:
                     if not user.has_usable_password():
-                        return redirect('/accounts/set_new_password/?next=%s' % path)
+                        return redirect('/accounts/edit/password/?next=%s' % path)
 
-
-#        if path.__contains__("/accounts"):
-#            user = request.user
-#            if user.is_anonymous():
-#                return
-
-#        domain = request.META.get('HTTP_HOST') or request.META.get('SERVER_NAME')
-#        pieces = domain.split('.')
-#        subdomain = ".".join(pieces[:-2]) # join all but primary domain
-#        default_domain = Site.objects.get(id=settings.SITE_ID)
-#        if domain in {default_domain.domain, "testserver", "localhost", "localhost:8000"}:
-#            return None
-#        try:
-#            route = Subdomain.objects.get(name=subdomain).url
-#        except Subdomain.DoesNotExist:
-#            route = path
-
-#        print scheme
-#
-#
-#        if route.startswith('http://') or route.startswith('https://'):
-#            return HttpResponseRedirect(route)
-
-        print request.get_full_path()
         return None
-#        return HttpResponseRedirect(request.get_full_path())
 
 
 class SubdomainMiddleware(object):
