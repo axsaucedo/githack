@@ -1,0 +1,23 @@
+#!/usr/bin/env python
+import os
+
+def runcmd(cmd):
+    return os.system("%s > /dev/null 2>&1" % cmd)
+
+curdir = os.getcwd()
+if runcmd("git status")!=0:
+    print("run from your git repositiory")
+    quit(1)
+
+lastdir = curdir
+
+while curdir!="/":
+    lastdir = curdir
+    curdir = os.path.dirname(curdir)
+    os.chdir(curdir)
+    if runcmd("git status")!=0:
+        os.system("echo \\#\\!/bin/bash >> %s/.git/hooks/commit-msg" % lastdir)
+        os.system("echo git diff --no-ext-diff --minimal HEAD \\| githack >> %s/.git/hooks/commit-msg" % lastdir)
+        os.system("chmod 755 %s/.git/hooks/commit-msg" % lastdir)
+        quit(0)
+print("Something goes wrong") 

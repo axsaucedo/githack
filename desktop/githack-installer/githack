@@ -1,0 +1,85 @@
+#!/usr/bin/env python
+import fileinput
+import re
+import json
+import urllib, urllib2
+import os
+
+linesadded = 0
+linesremoved = 0
+pstate = "init"
+for item in fileinput.input():
+    if pstate=="init":
+        if re.search("^diff",item):
+            pstate = "parseindex"
+        continue
+    if pstate=="parseindex":
+        if re.search("^index",item):
+            pstate = "parsein"
+        continue
+    if pstate=="parsein":
+        if re.search("^[-]",item):
+            pstate = "parseout"
+        continue
+    if pstate=="parseout":
+        if re.search("^[+]",item):
+            pstate = "parsestat"
+        continue
+    if pstate=="parsestat":
+        if re.search("^@@",item):
+            pstate = "actuallywork"
+        continue
+    if pstate=="actuallywork":
+        if re.search("^[+]", item):
+            linesadded = linesadded + 1
+        if re.search("^[-]", item):
+            linesremoved = linesremoved + 1
+        if re.search("^diff",item):
+            pstate = "parseindex"
+
+usr = ""
+password = ""
+try:
+    for line in fileinput.input("/etc/githack.conf"):
+        m = re.search("^user=(.*)", line)
+        if m:
+            usr = m.group(1)
+        m = re.search("^password=(.*)", line)
+        if m:
+            password = m.group(1)
+        m = re.search("^vimsupport=(.*)", line)
+        if m:
+            vimsupport = int(m.group(1))
+except:
+    pass
+
+inputsessions = 0
+inputtime = 0
+
+if vimsupport:
+    try:
+        for line in fileinput.input("/tmp/vimdata"):
+            m = re.search("msg ([0-9]+)\s([0-9]+)", line)
+            if m:
+                inputtime = inputtime + int(m.group(1))
+                inputsessions = inputsessions + int(m.group(2))
+        os.system("rm /tmp/vimdata")
+    except:
+        pass
+
+data = json.dumps({
+    "linesadded" : linesadded,
+    "linesremoved" : linesremoved,
+    "inputtime" : inputtime/1000,
+    "inputsessions" : inputsessions,
+    "user" : usr,
+    "password" : password,
+    "vimsupport" : vimsupport,
+})
+# do POST
+url_2 = 'http://githack.ninja/usercommit/'
+req = urllib2.Request(url_2, data, headers={'Content-Type': 'application/json'})
+rsp = urllib2.urlopen(req)
+content = rsp.read()
+resp = json.loads(content)
+print(resp['text'])
