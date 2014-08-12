@@ -100,7 +100,7 @@ class GHUserCreationForm(forms.ModelForm):
 class GHPasswordChangeForm(forms.Form):
 
     error_messages = {
-        'invalid_password': _("Your password is invalid, please try again."),
+        'invalid_password': _("Your Old or New password is invalid, please try again."),
         }
 
     old_password = forms.CharField(label=_("Old Password"),

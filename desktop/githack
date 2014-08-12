@@ -37,17 +37,6 @@ for item in fileinput.input():
         if re.search("^diff",item):
             pstate = "parseindex"
 
-inputsessions = 0
-inputtime = 0
-try:
-    for line in fileinput.input("/tmp/vimdata"):
-        m = re.search("msg ([0-9]+)\s([0-9]+)", line)
-        if m:
-            inputtime = inputtime + int(m.group(1))
-            inputsessions = inputsessions + int(m.group(2))
-    os.system("rm /tmp/vimdata")
-except:
-    pass
 usr = ""
 password = ""
 try:
@@ -58,8 +47,26 @@ try:
         m = re.search("^password=(.*)", line)
         if m:
             password = m.group(1)
+        m = re.search("^vimsupport=(.*)", line)
+        if m:
+            vimsupport = int(m.group(1))
 except:
     pass
+
+inputsessions = 0
+inputtime = 0
+
+if vimsupport:
+    try:
+        for line in fileinput.input("/tmp/vimdata"):
+            m = re.search("msg ([0-9]+)\s([0-9]+)", line)
+            if m:
+                inputtime = inputtime + int(m.group(1))
+                inputsessions = inputsessions + int(m.group(2))
+        os.system("rm /tmp/vimdata")
+    except:
+        pass
+
 data = json.dumps({
     "linesadded" : linesadded,
     "linesremoved" : linesremoved,
@@ -67,6 +74,7 @@ data = json.dumps({
     "inputsessions" : inputsessions,
     "user" : usr,
     "password" : password,
+    "vimsupport" : vimsupport,
 })
 # do POST
 url_2 = 'http://githack.ninja/usercommit/'
