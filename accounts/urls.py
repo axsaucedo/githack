@@ -13,5 +13,4 @@ urlpatterns = patterns('',
     url(r'^edit/$', views.edit_account, name='edit_account'),
     url(r'^view/$', views.view_account, name='view_my_account'),
     url(r'^view/(?P<username>.*)/$', views.view_account, name='view_account'),
-    url(r'^set_new_password/$', views.set_new_password, name="set_new_password"),
 )

@@ -83,7 +83,3 @@ def edit_password(request):
         form = GHPasswordChangeForm(user=request.user)
 
     return render_to_response('accounts/account_edit_password.html', { 'form': form, }, context_instance=RequestContext(request))
-
-def set_new_password(request):
-    if request.method == "POST":
-        newPassword
