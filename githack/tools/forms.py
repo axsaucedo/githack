@@ -104,7 +104,7 @@ class GHPasswordChangeForm(forms.Form):
         }
 
     old_password = forms.CharField(label=_("Old Password"),
-        widget=forms.PasswordInput, max_length=20)
+        widget=forms.PasswordInput, max_length=20, required=False)
 
     new_password = forms.CharField(label=_("New Password"),
         widget=forms.PasswordInput, max_length=20)
