@@ -1,4 +1,6 @@
 from django.http import HttpResponse
+from django.shortcuts import render
+
 from django.contrib.auth.models import User
 import json
 
@@ -56,3 +58,9 @@ def usercommit(request):
         response = { "text" : "\x1b[42;30mThe username and password provided did not match any user in our system. \nGitHub will still work as expected ;)\033[0m", }
 
     return HttpResponse(json.dumps(response), content_type="application/json")
+
+
+def error404(request):
+    return render(request, 'templates/404.html')
+def error500(request):
+    return render(request, 'templates/500.html')

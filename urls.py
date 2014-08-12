@@ -4,8 +4,8 @@ from settings import STATIC_ROOT, MEDIA_ROOT
 from django.contrib import admin
 admin.autodiscover()
 
-handler404 = 'templates.404'
-handler500 = 'templates.500'
+handler404 = 'githack.views.error404'
+handler500 = 'githack.views.error500'
 
 urlpatterns = patterns('',
 
