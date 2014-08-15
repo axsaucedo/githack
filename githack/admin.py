@@ -7,6 +7,7 @@ class GitScoreAdmin(ModelAdmin):
 
 site.register(GitScore, GitScoreAdmin)
 site.register(Commit)
+
 site.register(Subdomain)
 site.register(Badges)
 
