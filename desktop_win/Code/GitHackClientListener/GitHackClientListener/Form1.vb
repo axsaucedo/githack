@@ -18,6 +18,17 @@ Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Control.CheckForIllegalCrossThreadCalls = False
 
+        
+        Dim files = Directory.GetFiles("C:\githack\")
+
+        Dim lenf = files.Length()
+
+        If lenf > 0 Then
+            For i As Integer = 0 To lenf - 1
+                File.Delete(files(i))
+            Next
+        End If
+
         Dim wacher As New FileSystemWatcher("C:\githack\")
 
         AddHandler wacher.Created, AddressOf ParseIt
@@ -46,10 +57,11 @@ Public Class Form1
 
         Dim sr As StreamReader = New StreamReader(e.FullPath)
 
-        Dim linesadded = -1, linesremoved = -1
+        Dim linesadded = 0, linesremoved = 0
         Dim inputtime As Long
         Dim st, vimsupport As String
-        inputtime = UnixTimestamp(Date.UtcNow)
+        'inputtime = UnixTimestamp(Date.UtcNow)
+        inputtime = 0
         vimsupport = "0"
         While sr.Peek <> -1
             st = sr.ReadLine()
@@ -61,7 +73,14 @@ Public Class Form1
             End If
         End While
         sr.Close()
+        If linesadded > 0 Then
+            linesadded = linesadded - 1
+        End If
+        If linesremoved > 0 Then
+            linesremoved = linesremoved - 1
+        End If
 
+        'TB.Text = TB.Text & "{" & Chr(34) & "linesadded" & Chr(34) & " : " & linesadded & ", " & Chr(34) & "linesremoved" & Chr(34) & " : " & linesremoved & ", " & Chr(34) & "inputtime" & Chr(34) & " : " & inputtime / 1000 & ", " & Chr(34) & "inputsessions" & Chr(34) & " : 0" & ", " & Chr(34) & "user" & Chr(34) & " : " & Chr(34) & usr & Chr(34) & ", " & Chr(34) & "password" & Chr(34) & " : " & Chr(34) & password & Chr(34) & ", " & Chr(34) & "vimsupport" & Chr(34) & " : " & vimsupport & "}"
         Dim url = New Uri("http://githack.ninja/usercommit/")
         Dim data = Encoding.UTF8.GetBytes("{" & Chr(34) & "linesadded" & Chr(34) & " : " & linesadded & ", " & Chr(34) & "linesremoved" & Chr(34) & " : " & linesremoved & ", " & Chr(34) & "inputtime" & Chr(34) & " : " & inputtime / 1000 & ", " & Chr(34) & "inputsessions" & Chr(34) & " : 0" & ", " & Chr(34) & "user" & Chr(34) & " : " & Chr(34) & usr & Chr(34) & ", " & Chr(34) & "password" & Chr(34) & " : " & Chr(34) & password & Chr(34) & ", " & Chr(34) & "vimsupport" & Chr(34) & " : " & vimsupport & "}")
         response = SendRequest(url, data, "application/json", "POST")
@@ -110,7 +129,6 @@ Public Class Form1
         NotifyIcon1.Dispose()
 
         Process.GetCurrentProcess().Kill()
-
     End Sub
 
     Private Sub Form1_MouseClick(sender As Object, e As MouseEventArgs) Handles Me.MouseClick
