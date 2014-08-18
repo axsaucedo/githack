@@ -6,7 +6,6 @@ Imports Newtonsoft.Json.Linq
 
 
 Public Class Form1
-
     Public json_string, response, usr, password As String
 
     Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
@@ -16,36 +15,35 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Control.CheckForIllegalCrossThreadCalls = False
+            Control.CheckForIllegalCrossThreadCalls = False
 
-        
-        Dim files = Directory.GetFiles("C:\githack\")
 
-        Dim lenf = files.Length()
+            Dim files = Directory.GetFiles("C:\githack\")
 
-        If lenf > 0 Then
-            For i As Integer = 0 To lenf - 1
-                File.Delete(files(i))
-            Next
-        End If
+            Dim lenf = files.Length()
 
-        Dim wacher As New FileSystemWatcher("C:\githack\")
+            If lenf > 0 Then
+                For i As Integer = 0 To lenf - 1
+                    File.Delete(files(i))
+                Next
+            End If
 
-        AddHandler wacher.Created, AddressOf ParseIt
+            Dim wacher As New FileSystemWatcher("C:\githack\")
 
-        wacher.EnableRaisingEvents = True
-        get_login_data()
+            AddHandler wacher.Created, AddressOf ParseIt
 
-        While usr = "" Or password = ""
-            Dim myProcess As Process = Process.Start(Application.StartupPath & "\GitHackLogin.exe")
-            Do While Not myProcess.HasExited
-                Application.DoEvents()
-            Loop
-            myProcess.WaitForExit()
-            myProcess.Close()
+            wacher.EnableRaisingEvents = True
             get_login_data()
-        End While
 
+            While usr = "" Or password = ""
+                Dim myProcess As Process = Process.Start(Application.StartupPath & "\GitHackLogin.exe")
+                Do While Not myProcess.HasExited
+                    Application.DoEvents()
+                Loop
+                myProcess.WaitForExit()
+                myProcess.Close()
+                get_login_data()
+            End While
     End Sub
 
     Private Sub NotifyIcon1_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
