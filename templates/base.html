@@ -52,6 +52,7 @@
                 <li><a href="/"><img width="90px" src="/static/home/images/logo.png"></a></li>
                 <li><a class="brand" href="https://www.facebook.com/HackaGlobal"><i style="font-size: 1.5em !important;" class="icon-facebook"></i></a></li>
                 <li><a href="http://www.twitter.com/hackaglobal"><i style="font-size: 1.5em !important;" class="icon-twitter"></i></a></li>
+                <li><a class="brand" href="/download/"><i style="font-size: 1.5em !important;" class="glyphicon glyphicon-download-alt"></i></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
@@ -66,24 +67,14 @@
                     </li>
                 {% endif %}
             </ul>
-
-{#            <form id="nav-search-form" class="navbar-form navbar-right" method="POST" action="/find/" role="search">#}
-{#                {% csrf_token %}#}
-{#                <input id="nav-find-event-tags" class="form-control hidden" type="text" name="tags">#}
-{#                <div id="nav-find-events-bar" class="col-md-10">#}
-{#                    <ul id="nav-find-event-search" style="border-radius: 5px; padding: 5px 10px 5px 10px; background-color: #d3d3d3" data-name="nameOfSelect"></ul>#}
-{#                </div>#}
-{#                <button id="nav-find-event-search-btn" type="submit" class="btn btn-default col-md-2">Find</button>#}
-{#            </form>#}
-
             <ul class="nav navbar-nav navbar-right" style="margin-right: 50px">
                 {% if user.is_authenticated %}
 {#                    <li><a href="/find">Events</a></li>#}
 {#                    <li><a href="/create">Create</a></li>#}
 {#                    <li><a href="/manage">Manage</a></li>#}
                 {% else %}
-                    <li><a href="/accounts/login">Log In</a></li>
-                    <li><a href="/accounts/signup">Sign Up</a></li>
+                    <li><a href="/accounts/login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Log In</a></li>
+                    <li><a href="/accounts/signup"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Sign Up</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -92,6 +83,29 @@
 <div id="content">
     {% block content %}
     {% endblock %}
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="outer-center">
+            <div class="inner-center">
+                <div class="social">
+                    <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                    <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
+                    <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                    <a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a>
+                    <a class="btn btn-social-icon btn-vk"><i class="fa fa-vk"></i></a>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <footer>
+                            <p><a href="http://github.com/axsauze/githack/">GitHack on GitHub</a></p>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>

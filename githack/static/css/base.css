@@ -1,7 +1,26 @@
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 120px;
+}
 #content {
-    margin-top: 80px;
+    margin-top: 40px;
 }
 .nameclass {
     line-height: 30px;
     font-size: 1em;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* padding: 6em 0 6em 0;*/
+    background-color: #0d0d0d;
+    background: url(/static/home/images/header.png);
+    background-attachment: fixed;
+    color: #fff;
+
+    margin-top: 20px;
+    text-align: center;
 }

@@ -1,242 +1,130 @@
-<!DOCTYPE HTML>
-<!--
-	Helios by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<base href="/static/home/"></base>
+{% extends "base.html" %}
 
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-        <meta name="keywords" content="githack,hack,github,gamification,community,developers,programmers,alejandro saucedo, rewards" />
-        <meta property="og:url" content="http://githack.co/" />
-        <meta property="og:image" content="http://githack.co/static/home/img/hacka-globe.png" />
-        <meta property="og:title" content="GitHack" />
-        <meta property="og:description" content="GitHack adds gamification to GitHub!" />
-        <title>GitHack - Adding gamification to GitHub!</title>
+{% block head-includes %}
+    <link rel="stylesheet" href="/static/home/css/style.css">
+    <script src="/static/home/js/main.js"></script>
+{% endblock %}
 
-		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery.dropotron.min.js"></script>
-		<script src="js/jquery.scrolly.min.js"></script>
-		<script src="js/jquery.onvisible.min.js"></script>
-		<script src="js/skel.min.js"></script>
-		<script src="js/skel-layers.min.js"></script>
-		<script src="js/init.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="css/skel.css" />
-			<link rel="stylesheet" href="css/style.css" />
-            <link rel="stylesheet" href="css/mystyle.css" />
-			<link rel="stylesheet" href="css/style-desktop.css" />
-			<link rel="stylesheet" href="css/style-noscript.css" />
-		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-	</head>
-
-	<body class="homepage">
-
-    <style>
-
-        #nav {
-            color: white;
-        }
-
-
-        .profileContainer {
-            max-width:800px;
-            margin: 0 auto;
-        }
-
-        .brands {
-        }
-
-        .brands img {
-        }
-
-        .brands img {
-        }
-
-    </style>
-		<!-- Header -->
-			<div id="header" style="background-size: cover; background-position: right">
-						
-				<!-- Inner -->
-					<div class="inner">
-						<header>
-							<h1><a href="index.html" id="logo"><img width="80%" src="images/logo.png"></a></h1>
-							<hr />
-							<p>Write code. Push it to Github. Get rewards.</p>
-						</header>
-						<footer>
-						<!-- Begin MailChimp Signup Form -->
-						<!--<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css"> -->
-						<style type="text/css">
-							#mc_embed_signup{background:none; clear:left; font:14px Helvetica,Arial,sans-serif; width: 350px; margin: 0 auto; }
-							/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-							   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-						</style>
-						<div id="mc_embed_signup">
-							<form action="http://twitter.us8.list-manage.com/subscribe/post?u=624a10b513d1bc79133bc2dce&amp;id=eca9dab225" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-								<input type="email" value="" name="EMAIL" style="height:15px; width:200px; float:left" class="email" id="mce-EMAIL" placeholder="email" required>
-							    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-							    <div style="position: absolute; left: -5000px;"><input type="text" name="b_624a10b513d1bc79133bc2dce_eca9dab225" tabindex="-1" value=""></div>
-							    <input type="submit" value="Subscribe" name="subscribe" style="float:left; padding:4px; margin-left:10px; border-radius:10px; width:120px; height:45px; line-height:1.75em;" id="mc-embedded-subscribe" class="button"></div>
-							</form>
-						</div>
-						<div class="clear"></div>
-
-						<!--End mc_embed_signup-->
-							<!--<a href="#banner" class="button circled scrolly">Начать</a> -->
-						</footer>
-					</div>
-				
-				<!-- Nav -->
-
-        <!-- Nav -->
-        <nav id="nav">
-            <ul>
-                <li><a href="/accounts/login">Login</a></li>
-                <li><a href="/accounts/signup">Signup</a></li>
-                <li><a href="/download/">Download</a></li>
-            </ul>
-        </nav>
-
-			</div>
-			
-		<!-- Banner -->
-			<section id="banner">
-				<header>
-					<h2>Are you a Programmer? <strong>Awesome!</strong></h2>
-					<p>
-						We got something EPIC to show you!
-					</p>
-				</header>
-			</section>
-
-		<!-- Carousel -->
-			<section class="carousel container">
-				<div class="reel container" style="width:1100px">
-
-					<article>
-						<div class="image featured"><img src="images/pic01.jpg" alt="" /></div>
-						<header>
-							<h3>Gamify your GitHub!</h3>
-						</header>
-						<p>Download our script and you're good to go!</p>
-					</article>				
-					
-				
-					<article>
-						<div class="image featured"><img src="images/pic02.png" alt="" /></div>
-						<header>
-							<h3>Code, Commit, Push, Pull.</h3>
-						</header>
-						<p>We built GitHack with the objective of making it as dev-friendly as possible.</p>
-					</article>			
-				
-					<article>
-						<div href="#" class="image featured"><img src="images/badges.png" alt="" /></div>
-						<header>
-							<h3>Win awesome rewards!</h3>
-						</header>
-						<p>Get badges, rewards, prizes and credits by doing what you love.</p>
-					</article>
-
-				</div>
-			</section>
-			
-		<!-- Main -->
-
-		<!-- Features -->
-		<!--	<div class="wrapper style1">
-				
-				<section id="features" class="container special">
-					<header>
-						<h2>Контакты</h2>					
-					</header>
-				</section>
-
-			</div> -->
-
-        <section id="banner" class="brands-container">
-            <header>
-                <h2>Big brands trust GitHack</h2>
-
-                <div class="brands ">
-                    <img src="images/voximplant_logo.svg">
-                    <img src="images/lunacloud_logo.png">
+{% block content %}
+    <div id="header" class="jumbotron my-jb home-jb">
+      <div class="container">
+        <img id="gh-matrix" class="img-responsive github-matrix" src="/static/home/images/github-matrix.png" />
+        <h1>Introducing <span class="text-logo">GitHack</span></h1>
+        <p>Code. Commit. Level up. Get rewards.</p>
+        <p class="my-form">
+            <a href="http://ninja.githack.ninja" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download-alt"></span>GitHack on GitHub</a>
+            <a href="/accounts/login/" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
+            <a href="/accounts/signup/" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </p>
+      </div>            
+    </div>
+    
+      <div class="container">
+      <div class="jumbotron my-jb">
+          <h1>Are you a Programmer?</h1>
+          <h2>We got something EPIC to show you!</h2>
+      </div>
+    </div>
+    <div class="container">
+        
+        <div class="home-container">
+            <div id="blured-divs" class="row home-row not-unblured">
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div id="blur1" class="home-card blur">                    
+                      <img src="/static/home/images/github.png" class="img-responsive" />
+                      <div class="card-text">                                               
+                           <h3>Gamify your GitHub!</h3>
+                           <p>Download our script and you're good to go!</p>
+                      </div>                                 
+                    </div>                
                 </div>
-
-            </header>
-        </section>
-		<!-- Footer -->
-			<div id="footer">
-				<div class="container">
-
-
-
-
-                  <style type="text/css">
-					#mc_embed_signup{background:none; clear:left; font:14px Helvetica,Arial,sans-serif; width: 350px; margin: 0 auto; }
-					/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-					   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-				</style>
-				<div id="mc_embed_signup">
-					<form action="http://twitter.us8.list-manage.com/subscribe/post?u=624a10b513d1bc79133bc2dce&amp;id=eca9dab225" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-						<input type="email" value="" name="EMAIL" style="height:15px; width:200px; float:left" class="email" id="mce-EMAIL" placeholder="email" required>
-					    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-					    <div style="position: absolute; left: -5000px;"><input type="text" name="b_624a10b513d1bc79133bc2dce_eca9dab225" tabindex="-1" value=""></div>
-					    <input type="submit" value="Subscribe" name="subscribe" style="float:left; padding:4px; margin-left:10px" id="mc-embedded-subscribe" class="button"></div>
-					</form>
-				</div>
-				<div class="clear"></div>
-
-				<!--End mc_embed_signup-->
-					
-					<div class="row">
-						<div class="12u">
-
-
-							<!-- Contact -->
-								<section class="contact" style="margin-top:35px">
-									<header>
-										<h3>Questions?</h3>
-									</header>
-									<p><a href="mailito:hackaglobal@gmail.com">Send us an email!</a></p>
-									<ul class="icons">
-										<li><a href="https://twitter.com/githack2014" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="https://www.facebook.com/groups/githack/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>								
-									</ul>
-								</section>
-
-
-
-{#							<!-- Copyright -->#}
-{#								<div class="copyright">#}
-{#									<ul class="menu">#}
-{#										<li>&copy; Githack. All rights reserved.</li>#}
-{#									</ul>#}
-{#								</div>#}
-							
-						</div>
-					
-					</div>
-				</div>
-			</div>
-
-        <script>
-            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-            ga('create', 'UA-53689640-1', 'auto');
-            ga('send', 'pageview');
-
-        </script>
-
-	</body>
-</html>
+                <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div id="blur2" class="home-card blur">                    
+                      <img src="/static/home/images/programmer.jpg" class="img-responsive" />
+                      <div class="card-text">                                               
+                           <h3>Code, Commit, Push, Pull.</h3>
+                           <p>We built GitHack with the objective of making it as dev-friendly as possible.</p>
+                      </div>                                 
+                    </div>                
+                </div>          
+                 <div class="col-xs-4 col-sm-4 col-md-4">
+                    <div id="blur3" class="home-card blur">                    
+                      <img src="/static/home/images/badges.png" class="img-responsive" />
+                      <div class="card-text">                                               
+                           <h3>Win awesome rewards!</h3>
+                           <p>Get badges, rewards, prizes and credits by doing what you love.</p>
+                      </div>                                 
+                    </div>                
+                </div> 
+                <div class="clearfix visible-sm-block"></div>          
+            </div>
+        </div>        
+    </div>
+     
+      <div class="container">
+          <div class="jumbotron my-jb my-jb-margin">
+              <h1>Still confused?</h1>
+              <h2>We recorded a video just for you!</h2>         
+          </div>
+    </div>
+    <div class="container">
+       
+         <div id="blur4" class="flex-video widescreen blur">
+             <iframe src="http://www.youtube.com/embed/biAdCWY3iv0" frameborder="0" allowfullscreen></iframe>
+        </div>            
+        
+         <div class="outer-center">
+              <div class="inner-center">
+                      
+                  <!--<iframe width="640" height="480" src="//www.youtube.com/embed/UDApZhXTpH8" frameborder="0" allowfullscreen></iframe> -->
+                   <div class="clearfix"></div>
+                   <div class="outer-center my-form home-buttons">
+                       <div class="inner-center">              
+                           <a href="http://ninja.githack.ninja" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download-alt"></span>GitHack on GitHub</a>
+                           <a href="/static/home/login.html" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
+                            <a href="/static/home/register.html" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                      </div>
+                 </div>
+              </div>
+          </div>
+    </div>
+   
+      <div class="container">
+          <div class="jumbotron my-jb my-jb-margin">
+              <h1 class="text-centered">Big brands trust GitHack!</h1>
+              <div class="outer-center">
+                <div class="inner-center">            
+                      <img class="img-responsive img-brand lunacloud" src="/static/home/images/lunacloud_logo.png">
+                      <img class="img-responsive img-brand" src="/static/home/images/voximplant_logo.svg">
+                </div>         
+              </div>
+              <div class="clearfix"></div>
+          </div>
+    </div>   
+    <div class="container">
+        <!-- Begin MailChimp Signup Form -->
+       	<div id="mc_embed_signup" class="outer-center">
+            <div class="inner-center">
+                <form class="form-horizontal my-form" role="form" action="http://twitter.us8.list-manage.com/subscribe/post?u=624a10b513d1bc79133bc2dce&amp;id=eca9dab225" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <h1 class="text-centered">Don't miss a thing!</h1>
+                    <hr />
+                    <div class="form-group">                    
+                      <div class="my-col">
+                          <input type="email" name="EMAIL" class="form-control input-lg" id="mce-EMAIL" placeholder="Email">
+                           <div style="position: absolute; left: -5000px;"><input type="text" name="b_624a10b513d1bc79133bc2dce_eca9dab225" tabindex="-1" value=""></div>
+                      </div>
+                      <div class="my-col">
+                      <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-lg">
+                          <span class="glyphicon glyphicon-ok-sign"></span>
+                          Subscribe
+                      </button>
+                          <!--<input type="submit" value="Subscribe" name="subscribe" class="btn btn-success btn-lg" id="mc-embedded-subscribe" >   -->
+                      </div>
+                    </div>
+                </form>
+            </div>
+        </div>	   
+		<div class="clearfix"></div>
+		<!--End mc_embed_signup-->      
+    </div>
+{% endblock %}

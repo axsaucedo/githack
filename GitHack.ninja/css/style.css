@@ -21,7 +21,7 @@ body {
   height: 120px;
  /* padding: 6em 0 6em 0;*/
    background-color: #0d0d0d;
-   background: url(../images/header.png);
+   background: url(../../githack/static/home/images/header.png);
    background-attachment: fixed;
    color: #fff;
 }
@@ -93,7 +93,7 @@ body {
     -ms-transition:background-image 2s ease-in-out;   
     transition: background-image 2s ease-in-out;
    
-   background: url(../images/header_0.jpg) repeat;
+   background: url(../../githack/static/home/images/header_0.jpg) repeat;
   /* background: rgba(80, 125, 200, 0.55);*/
    background-size: cover;
    background-position: center center;
@@ -103,7 +103,7 @@ body {
 }
 
 .home-jb.ready {
-    background-image: url(../images/header.png);
+    background-image: url(../../githack/static/home/images/header.png);
      /*-webkit-transition: background 4s linear;
     -moz-transition: background 4s linear;
     -o-transition: background 4s linear;

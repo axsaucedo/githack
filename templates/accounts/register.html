@@ -1,49 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign up to GitHack</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/bootstrap-social.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">       
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <nav id="myNavbar" class="navbar navbar-default" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">GitHack</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="index.html"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Sign in</a></li>
-                    <li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
-                    <li><a href="download.html"><span class="glyphicon glyphicon-download-alt"></span>Download</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
     <div id="header" class="jumbotron my-jb home-jb">
         <div class="container">
-            <img id="gh-matrix" class="img-responsive github-matrix fixed" src="images/github-matrix.png" />
+            <img id="gh-matrix" class="img-responsive github-matrix fixed" src="/static/home/images/github-matrix.png" />
             <h1>Sign up to <span class="text-logo">GitHack</span></h1>
             <p>And start coding!</p>
         </div>
@@ -57,7 +15,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="textinputemail">Email</label>  
               <div class="col-sm-6">
-              <input id="textinputemail" name="textinputemail" type="text" placeholder="user@example.com" class="form-control input-md" required="">
+              <input id="textinputemail" name="username" type="text" placeholder="user@example.com" class="form-control input-md" required="">
                 
               </div>
             </div>
@@ -66,7 +24,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="first-name">First name</label>  
               <div class="col-sm-6">
-              <input id="first-name" name="first-name" type="text" placeholder="Sherlock" class="form-control input-md" required="">
+              <input id="first-name" name="first_name" type="text" placeholder="Sherlock" class="form-control input-md" required="">
                 
               </div>
             </div>
@@ -75,7 +33,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="last-name">Last name</label>  
               <div class="col-sm-6">
-              <input id="last-name" name="last-name" type="text" placeholder="Holmes" class="form-control input-md" required="">
+              <input id="last-name" name="last_name" type="text" placeholder="Holmes" class="form-control input-md" required="">
                 
               </div>
             </div>
@@ -84,7 +42,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="password">Password</label>
               <div class="col-sm-6">
-                <input id="password" name="password" type="password" placeholder="12345" class="form-control input-md" required="">
+                <input id="password" name="password" type="password1" placeholder="12345" class="form-control input-md" required="">
                 
               </div>
             </div>
@@ -93,7 +51,7 @@
             <div class="form-group">
               <label class="col-sm-2 control-label" for="confirm-password">Confirm Password</label>
               <div class="col-sm-6">
-                <input id="confirm-password" name="confirm-password" type="password" placeholder="12345" class="form-control input-md" required="">
+                <input id="confirm-password" name="password2" type="password" placeholder="12345" class="form-control input-md" required="">
                 
               </div>
             </div>
@@ -137,7 +95,7 @@
      <!-- Bootstrap core JavaScript
     ================================================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../GitHack.ninja/js/bootstrap.min.js"></script>
      <!-- Other JavaScript --!>
     <script src="js/main.js"></script>  
   </body>

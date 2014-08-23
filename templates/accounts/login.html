@@ -1,55 +1,49 @@
 {% extends "base.html" %}
 
+{% block head-includes %}
+    <link rel="stylesheet" href="/static/home/css/style.css">
+    <script src="/static/home/js/main.js"></script>
+{% endblock %}
+
 {% block content %}
-    {% if user.is_authenticated %}
-        <meta http-equiv="REFRESH" content="0;url={% url 'view_my_account' %}">
-    {% endif %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    <h1 class="page-header">Log In</h1>
-                </div>
-                <h1>Log in to see all your epic achievements!</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="well" style="margin-top: 50px">
-                    <form id="add-event-form" class="form-horizontal" method="POST">
-                        {% csrf_token %}
-                        <fieldset style="border: none;">
-                            <legend>To login with Github click <a class="btn btn-primary" href='{% url 'socialauth_begin' 'github' %}'>here</a></legend>
-{#                            <legend>To login with VK click <a class="btn btn-primary" href="{% url 'socialauth_begin' 'vk-oauth' %}">here</a></legend>#}
-                            {% if form.errors %}
-                                <div class="alert alert-dismissable alert-danger">
-                                    Your username and password didn't match. Please try again.
-                                </div>
-                            {% endif %}
-                            <div class="form-group">
-                                <label for="add-event-form-name" class="col-md-3 control-label">Email</label>
-                                <div class="col-md-9">
-                                    <input id="add-event-form-name" name="username" class="form-control" type="text" placeholder="user@example.com">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="add-event-form-description" class="col-md-3 control-label">Password</label>
-                                <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-description" name="password" class="form-control" type="password" placeholder="Password">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <button class="btn btn-primary" type="submit" value="login">Log In</button>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="next" value="/accounts/view/" />
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
-        </div>
+    <div id="header" class="jumbotron my-jb home-jb fill">
+      <div class="container">
+        <img id="gh-matrix" class="img-responsive github-matrix fixed" src="/static/home/images/github-matrix.png" />
+        <h1>Sign in to <span class="text-logo">GitHack</span></h1>
+        <p>And keep on coding!</p>        
+      </div>            
     </div>
-
+    <div class="container">
+        <form class="form-horizontal my-form">
+            <fieldset>          
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="username">Username</label>               
+              <div class="col-lg-6 col-md-6 col-sm-6">
+              <input id="username" name="username" type="text" placeholder="username" class="form-control input-lg" required="required">
+                
+              </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="password">Password</label>              
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <input id="password" name="password" type="password" placeholder="password" class="form-control input-lg" required="required">
+                
+              </div>
+            </div>
+            
+            <!-- Button -->
+            <div class="form-group">
+             <label class="col-sm-2 control-label" for="submit"></label>               
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <button id="submit" name="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-log-in"></span>Sign in</button>
+              </div>
+            </div>
+            
+            </fieldset>
+        </form>
+    </div>
 {% endblock %}
