@@ -1,73 +1,80 @@
 {% extends "base.html" %}
 
+{% block head-includes %}
+    <link rel="stylesheet" href="/static/home/css/style.css">
+    <script src="/static/home/js/main.js"></script>
+{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="row">
-                    <h1 class="page-header">Register</h1>
-                </div>
-                <h1>Sign up and start earning all the badges!</h1>
-            </div>
-            <div class="col-md-6">
-                <div class="well" style="margin-top: 50px">
-                    <form id="add-event-form" class="form-horizontal" method="POST">
-                        {% csrf_token %}
-                        <fieldset style="border: none;">
-                            <legend>To login with Github click <a class="btn btn-primary" href='{% url 'socialauth_begin' 'github' %}'>here</a></legend>
-{#                            <legend>To login with VK click <a class="btn btn-primary" href="{% url 'socialauth_begin' 'vkontakte-oauth2' %}">here</a></legend>#}
-                            {% if form.errors %}
-                                <div class="alert alert-dismissable alert-danger">
-                                    {{ form.errors }}
-                                </div>
-                            {% endif %}
-                            <div class="form-group">
-                                <label for="add-event-form-username" class="col-md-3 control-label">Email</label>
-                                <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-username" name="username" class="form-control" type="text" placeholder="user@example.com">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="add-event-form-first-name" class="col-md-3 control-label">First Name</label>
-                                <div class="col-md-9">
-                                    <input id="add-event-form-first-name" name="first_name" class="form-control" type="text" placeholder="First Name">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="add-event-form-last-name" class="col-md-3 control-label">Last Name</label>
-                                <div class="col-md-9" style="padding-bottom: 20px;">
-                                    <input id="add-event-form-last-name" name="last_name" class="form-control" type="text" placeholder="Last Name">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="add-event-form-password" class="col-md-3 control-label">Password</label>
-                                <div class="col-md-9">
-                                    <input id="add-event-form-password" name="password1" class="form-control" type="password" placeholder="Password">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="add-event-form-confirmation" class="col-md-3 control-label">Confirm Password</label>
-                                <div class="col-md-9">
-                                    <input id="add-event-form-confirmation" name="password2" class="form-control" type="password" placeholder="Password">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
-                                    <button class="btn btn-primary" type="submit" value="login">Sign Up</button>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="next" value="/accounts/login/" />
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+    <div id="header" class="jumbotron my-jb home-jb">
+        <div class="container">
+            <img id="gh-matrix" class="img-responsive github-matrix fixed" src="/static/home/images/github-matrix.png" />
+            <h1>Sign up to <span class="text-logo">GitHack</span></h1>
+            <p>And start coding!</p>
         </div>
     </div>
 
+    <div class="container"> 
+        <form class="form-horizontal my-form">
+            <fieldset>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="textinputemail">Email</label>  
+              <div class="col-sm-6">
+              <input id="textinputemail" name="username" type="text" placeholder="user@example.com" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="first-name">First name</label>  
+              <div class="col-sm-6">
+              <input id="first-name" name="first_name" type="text" placeholder="Sherlock" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="last-name">Last name</label>  
+              <div class="col-sm-6">
+              <input id="last-name" name="last_name" type="text" placeholder="Holmes" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="password">Password</label>
+              <div class="col-sm-6">
+                <input id="password" name="password" type="password1" placeholder="12345" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="confirm-password">Confirm Password</label>
+              <div class="col-sm-6">
+                <input id="confirm-password" name="password2" type="password" placeholder="12345" class="form-control input-md" required="">
+                
+              </div>
+            </div>
+            
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-sm-2 control-label" for="submit"></label>
+                <div class="col-sm-3">
+                    <button id="submit" name="submit" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-log-in"></span>Sign in</button>
+                </div>
+                <div class="col-sm-3">
+                    <a href="{% url 'socialauth_begin' 'github' %}" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-user"></span>With GitHub</a>
+                </div>
+            </div>
+            
+            </fieldset>
+        </form>           
+    </div>
 {% endblock %}
