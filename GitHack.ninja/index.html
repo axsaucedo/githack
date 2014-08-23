@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.css">
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="js/ie10-viewport-bug-workaround.js"></script>  
+    <script src="js/ie10-viewport-bug-workaround.js"></script> 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -34,21 +34,21 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="login.html">Sign in</a></li>
-                    <li><a href="register.html">Sign up</a></li>
-                    <li><a href="download.html">Download</a></li>
+                    <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Sign in</a></li>
+                    <li><a href="register.html"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
+                    <li><a href="download.html"><span class="glyphicon glyphicon-download-alt"></span>Download</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="jumbotron my-jb home-jb">
+    <div id="header" class="jumbotron my-jb home-jb">
       <div class="container">
-        <img class="img-responsive github-matrix" src="images/github-matrix.png" />
-        <h1>Introducing <span style="font-family: Hacked; letter-spacing: 2px; font-size: 80px;">GitHack</span></h1>
+        <img id="gh-matrix" class="img-responsive github-matrix" src="images/github-matrix.png" />
+        <h1>Introducing <span class="text-logo">GitHack</span></h1>
         <p>Write code. Push it to Github. Get rewards.</p>
         <p class="my-form">
-            <a href="http://ninja.githack.ninja" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-circle-arrow-down"></span>Download GitHack</a>          
+            <a href="http://ninja.githack.ninja" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download-alt"></span>Download GitHack</a>          
             <a href="login.html" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
             <a href="register.html" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
         </p>
@@ -64,9 +64,9 @@
     <div class="container">
         
         <div class="home-container">
-            <div class="row home-row">
+            <div id="blured-divs" class="row home-row not-unblured">
                 <div class="col-xs-4 col-sm-4 col-md-4">
-                    <div class="home-card">                    
+                    <div id="blur1" class="home-card blur">                    
                       <img src="images/programmer.png" class="img-responsive" />
                       <div class="card-text">                                               
                            <h3>Gamify your GitHub!</h3>
@@ -75,7 +75,7 @@
                     </div>                
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4">
-                    <div class="home-card">                    
+                    <div id="blur2" class="home-card blur">                    
                       <img src="images/github.png" class="img-responsive" />
                       <div class="card-text">                                               
                            <h3>Code, Commit, Push, Pull.</h3>
@@ -84,7 +84,7 @@
                     </div>                
                 </div>          
                  <div class="col-xs-4 col-sm-4 col-md-4">
-                    <div class="home-card">                    
+                    <div id="blur3" class="home-card blur">                    
                       <img src="images/badges.png" class="img-responsive" />
                       <div class="card-text">                                               
                            <h3>Win awesome rewards!</h3>
@@ -98,19 +98,25 @@
     </div>
      
       <div class="container">
-      <div class="jumbotron my-jb my-jb-margin">
-          <h1>Still confused?</h1>
-          <h2>We recorded a video just for you!</h2>         
-      </div>
+          <div class="jumbotron my-jb my-jb-margin">
+              <h1>Still confused?</h1>
+              <h2>We recorded a video just for you!</h2>         
+          </div>
     </div>
     <div class="container">
+       
+         <div id="blur4" class="flex-video widescreen blur">
+             <iframe src="//www.youtube.com/embed/UDApZhXTpH8" frameborder="0" allowfullscreen></iframe>
+        </div>            
+        
          <div class="outer-center">
-              <div class="inner-center">   
-                  <iframe width="640" height="480" src="//www.youtube.com/embed/UDApZhXTpH8" frameborder="0" allowfullscreen></iframe>
+              <div class="inner-center">
+                      
+                  <!--<iframe width="640" height="480" src="//www.youtube.com/embed/UDApZhXTpH8" frameborder="0" allowfullscreen></iframe> -->
                    <div class="clearfix"></div>
                    <div class="outer-center my-form home-buttons">
                        <div class="inner-center">              
-                           <a href="http://ninja.githack.ninja" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-circle-arrow-down"></span>Download GitHack</a>          
+                           <a href="http://ninja.githack.ninja" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-download-alt"></span>Download GitHack</a>          
                            <a href="login.html" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-log-in"></span> Sign In</a>
                             <a href="register.html" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
                       </div>
@@ -118,42 +124,44 @@
               </div>
           </div>
     </div>
-
-
    
       <div class="container">
-      <div class="jumbotron my-jb my-jb-margin">
-          <h1 style="text-align: center;">Big brands trust GitHack!</h1>
-          <div class="outer-center">
-            <div class="inner-center">            
-                  <div class="brand-name"><img class="img-responsive" src="images/lunacloud_logo.png"></div>
-                  <div class="brand-name"><img class="img-responsive" src="images/voximplant_logo.svg"></div>
-            </div>         
+          <div class="jumbotron my-jb my-jb-margin">
+              <h1 class="text-centered">Big brands trust GitHack!</h1>
+              <div class="outer-center">
+                <div class="inner-center">            
+                      <img class="img-responsive img-brand lunacloud" src="images/lunacloud_logo.png">
+                      <img class="img-responsive img-brand" src="images/voximplant_logo.svg">
+                </div>         
+              </div>
+              <div class="clearfix"></div>
           </div>
-          <div class="clearfix"></div>
-      </div>
     </div>   
     <div class="container">
         <!-- Begin MailChimp Signup Form -->
        	<div id="mc_embed_signup" class="outer-center">
             <div class="inner-center">
                 <form class="form-horizontal my-form" role="form" action="http://twitter.us8.list-manage.com/subscribe/post?u=624a10b513d1bc79133bc2dce&amp;id=eca9dab225" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <div class="form-group">
-                      <div class="col-sm-6">
+                    <h1 class="text-centered">Don't miss a thing!</h1>
+                    <hr />
+                    <div class="form-group">                    
+                      <div class="my-col">
                           <input type="email" name="EMAIL" class="form-control input-lg" id="mce-EMAIL" placeholder="Email">
                            <div style="position: absolute; left: -5000px;"><input type="text" name="b_624a10b513d1bc79133bc2dce_eca9dab225" tabindex="-1" value=""></div>
                       </div>
-                      <div class="col-sm-6">
-                          <input type="submit" value="Subscribe" name="subscribe" class="btn btn-success btn-lg" id="mc-embedded-subscribe" >   
+                      <div class="my-col">
+                      <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-success btn-lg">
+                          <span class="glyphicon glyphicon-ok-sign"></span>
+                          Subscribe
+                      </button>
+                          <!--<input type="submit" value="Subscribe" name="subscribe" class="btn btn-success btn-lg" id="mc-embedded-subscribe" >   -->
                       </div>
                     </div>
                 </form>
             </div>
-        </div>		
-	   
+        </div>	   
 		<div class="clearfix"></div>
-		<!--End mc_embed_signup-->     
-       
+		<!--End mc_embed_signup-->      
     </div>
     
     <div class="footer">
@@ -161,11 +169,11 @@
             <div class="outer-center">
                 <div class="inner-center">
                     <div class="social">
-                        <a class="btn btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
-                        <a class="btn btn-social-icon btn-twitter"><i class="fa fa-twitter"></i></a>
-                        <a class="btn btn-social-icon btn-github"><i class="fa fa-github"></i></a>
-                        <a class="btn btn-social-icon btn-instagram"><i class="fa fa-instagram"></i></a>
-                        <a class="btn btn-social-icon btn-vk"><i class="fa fa-vk"></i></a>
+                        <a class="btn btn-social-icon btn-facebook" href=""><i class="fa fa-facebook"></i></a>
+                        <a class="btn btn-social-icon btn-twitter" href=""><i class="fa fa-twitter"></i></a>
+                        <a class="btn btn-social-icon btn-github" href=""><i class="fa fa-github"></i></a>
+                        <a class="btn btn-social-icon btn-instagram" href=""><i class="fa fa-instagram"></i></a>
+                        <a class="btn btn-social-icon btn-vk" href=""><i class="fa fa-vk"></i></a>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
@@ -184,5 +192,7 @@
     ================================================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <!-- Other JavaScript --!>
+    <script src="js/main.js"></script>  
   </body>
 </html>

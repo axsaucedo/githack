@@ -20,10 +20,47 @@ body {
   /* Set the fixed height of the footer here */
   height: 120px;
  /* padding: 6em 0 6em 0;*/
-  background: #2b252c;
-   background: url(../images/header.jpg);
-  color: #fff;
+   background-color: #0d0d0d;
+   background: url(../images/header.png);
+   background-attachment: fixed;
+   color: #fff;
 }
+/* Responsive video
+-------------------------------------------------- */
+
+.flex-video {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+  margin-bottom: 16px;
+  overflow: hidden;
+  width:100%;
+}
+ 
+.flex-video.widescreen { padding-bottom: 57.25%; }
+.flex-video.vimeo { padding-top: 0; }
+ 
+.flex-video iframe,
+.flex-video object,
+.flex-video embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+@media only screen and (max-device-width: 800px), only screen and (device-width: 1024px) and (device-height: 600px), only screen and (width: 1280px) and (orientation: landscape), only screen and (device-width: 800px), only screen and (max-width: 767px) {
+  .flex-video { padding-top: 0; }
+}
+
+@media (min-width:640px) {
+    .video-tut {
+       width:640px;
+    }
+}
+
+/****************************************************/
 
 .fill { 
     min-height: 100%;
@@ -48,7 +85,94 @@ body {
 }
 
 .home-jb {
-    background: url(../images/header.jpg);
+   /* background-color: #0d0d0d;*/ 
+   
+    -moz-transition: background-image 2s ease-in-out;
+    -webkit-transition:background-image 2s ease-in-out;
+    -o-transition: background-image 2s ease-in-out;
+    -ms-transition:background-image 2s ease-in-out;   
+    transition: background-image 2s ease-in-out;
+   
+   background: url(../images/header_0.jpg) repeat;
+  /* background: rgba(80, 125, 200, 0.55);*/
+   background-size: cover;
+   background-position: center center;
+   background-attachment: fixed;
+    
+    
+}
+
+.home-jb.ready {
+    background-image: url(../images/header.png);
+     /*-webkit-transition: background 4s linear;
+    -moz-transition: background 4s linear;
+    -o-transition: background 4s linear;
+    transition: background 4s linear;*/
+  /* background: rgba(100, 125, 175, 0);*/
+  
+}
+
+.blur {
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -ms-filter: blur(4px);
+    -o-filter: blur(4px);
+    filter: blur(4px);
+     -moz-transition: all 2s ease-in;
+    -webkit-transition: all 2s ease-in;
+    -o-transition: all 2s ease-in;
+    -ms-transition: all 2s ease-in;   
+    transition: all 2s ease-in;
+}
+
+.unblur {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    -o-filter: blur(0px);
+    filter: blur(0px);
+     -moz-transition: all 1s ease-out;
+    -webkit-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;   
+    transition: all 1s ease-out;
+}
+
+.scaleUp {
+     -webkit-transform: scale(1.15,1.15);
+     -webkit-transition-timing-function: ease-in-out;
+     -webkit-transition-duration: 1s;
+     -moz-transform: scale(1.15,1.15);
+     -moz-transition-timing-function: ease-in-out;
+     -moz-transition-duration: 1s;
+     -o-transform: scale(1.15,1.15);
+     -o-transition-timing-function: ease-in-out;
+     -o-transition-duration: 1s;
+     -ms-transform: scale(15.1,1.15);
+     -ms-transition-timing-function: ease-in-out;
+     -ms-transition-duration: 1s;    
+     transform: scale(1.15,1.15);
+     transition-timing-function: ease-in-out;
+     transition-duration: 1s;    
+    
+}
+
+.scaleDown {
+     -webkit-transform: scale(1,1);
+     -webkit-transition-timing-function: ease-in-out;
+     -webkit-transition-duration: 1s;
+     -moz-transform: scale(1,1);
+     -moz-transition-timing-function: ease-in-out;
+     -moz-transition-duration: 1s;
+     -o-transform: scale(1,1);
+     -o-transition-timing-function: ease-in-out;
+     -o-transition-duration: 1s;
+     -ms-transform: scale(1,1);
+     -ms-transition-timing-function: ease-in-out;
+     -ms-transition-duration: 1s;    
+     transform: scale(1,1);
+     transition-timing-function: ease-in-out;
+     transition-duration: 1s;    
     
 }
 
@@ -82,64 +206,60 @@ body {
     color:#fff;
 }
 
+.my-jb h1, .h1-rsp {
+    font-size:50px;
+}
+
+#gh-matrix {
+    opacity: 0;
+    -moz-transition: opacity 2s ease-in-out;
+	-webkit-transition: opacity 2s ease-in-out;
+	-o-transition: opacity 2s ease-in-out;
+	-ms-transition: opacity 2s ease-in-out;
+	transition: opacity 2s ease-in-out;
+}
+
+#gh-matrix.ready {
+    opacity: 1;
+}
+
+.github-matrix {
+    max-height: 100px;
+
+}
+.github-matrix.fixed {
+    max-height: 130px;
+}
+@media (min-width: 768px) {
+   .github-matrix {
+        max-height: 160px;
+    } 
+}
+
+@media (min-width: 992px) { 
+    .my-jb h1, .h1-rsp {
+        font-size:70px;
+    }
+    
+    .github-matrix {
+        max-height: 200px;
+    }
+}
+
 @media (min-width: 1200px) {
 
-    .home-jb h1 {
+    /*.home-jb h1, .h1-rsp {
         font-size: 70px !important;
-    }
+    }*/
     
     .home-jb p {
         font-size: 30px !important;
     }    
 }
 
-@media (min-width: 992px) { 
-    .my-jb h1 {
-        font-size:50px;
-    }
+.text-logo {
+    font-family: Hacked; letter-spacing: 2px;
 }
-
-@media (min-width: 768px) and  (max-width: 992px) { 
-    .my-jb h1 {
-        font-size:40px;
-    }
-}
-
- .brands {
-    margin-bottom: 40px;
-}
-
-@media (min-width: 768px) {
-    /*.brands {
-        width:620px;
-        margin:0 auto;
-    }*/
-    
-    /*.brands {
-        margin-top: 20px;
-    }*/
-    
-    .brand-name img:first-of-type {
-        margin-right: 20px;
-    }
-    .brand-name {
-        float: left;
-    }
-}
-
-@media (max-width: 768px) {
-    
-    .brand-name img {
-        /*float: right;*/
-        /*margin-right: 20px;*/
-        margin: 0 auto;
-    }
-    
-    .brand-name:first-of-type {
-        margin-bottom: 20px;
-    }
-}
-
 
 
 .github-matrix {
@@ -148,7 +268,7 @@ body {
     height: 242px;*/
    /* position: absolute;*/
     float: right;
-    max-height:200px;
+    /*max-height:200px;*/
 }
 
 @media (max-width: 480px) {
@@ -248,5 +368,42 @@ footer {
 
 #mc_embed_signup {
     margin-bottom: 20px;
+}
+
+.nav .glyphicon {
+    margin-right: 5px;
+}
+
+button .glyphicon {
+    margin-right: 7px;
+}
+@media (min-width: 768px) {
+    .my-col {
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+.img-brand {
+    margin-right: 40px;
+    float: left;
+}
+
+.img-brand.lunacloud {
+    max-width: 270px;
+}
+
+@media (max-width: 992px) {
+    .img-brand {
+        float:none;
+        margin:0 0 20px 0
+    }
+    
+    .img-brand:last-of-type {
+        margin-bottom: 0;
+    }
 }
 

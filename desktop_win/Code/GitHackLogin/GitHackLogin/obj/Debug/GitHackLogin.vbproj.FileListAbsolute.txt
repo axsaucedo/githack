@@ -1,0 +1,10 @@
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\bin\Debug\GitHackLogin.exe.config
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\bin\Debug\GitHackLogin.exe
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\bin\Debug\GitHackLogin.pdb
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\bin\Debug\GitHackLogin.xml
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\obj\Debug\GitHackLogin.Form1.resources
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\obj\Debug\GitHackLogin.Resources.resources
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\obj\Debug\GitHackLogin.vbproj.GenerateResource.Cache
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\obj\Debug\GitHackLogin.exe
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\obj\Debug\GitHackLogin.xml
+c:\users\nik\documents\visual studio 2013\Projects\GitHackLogin\GitHackLogin\obj\Debug\GitHackLogin.pdb
