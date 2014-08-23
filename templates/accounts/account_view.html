@@ -7,105 +7,98 @@
 
 {% block content %}
     {% load gh_tags %}
+        <div class="container">
 
-    <div id="manage-events" class="container" xmlns="http://www.w3.org/1999/html">
-{#        <div class="row">#}
-{#            <h2>Welcome {{ user.username }}!</h2>#}
-{#        </div>#}
-        <div class="row">
-            <div class="container">
+            <div id="badges-container" class="col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">My badges</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            {% for badge in badges %}
 
-                <div id="badges-container" class="col-md-6">
-                    <div class="panel panel-danger">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">My badges</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                {% for badge in badges %}
+                                {% is_obtained user badge as obtained %}
+                                <div class="special badge{% if not obtained %} disabled{% endif %} col-md-4">
+                                    <div class="badgeTitle">{{ badge.name }}</div>
+                                    <div class="badgeDesc ">{{ badge.description }}</div>
+                                    <div class="clear"></div>
+                                    <img src="{{ badge.get_photo }}" alt="">
+                                </div>
 
-                                    {% is_obtained user badge as obtained %}
-                                    <div class="special badge{% if not obtained %} disabled{% endif %} col-md-4">
-                                        <div class="badgeTitle">{{ badge.name }}</div>
-                                        <div class="badgeDesc ">{{ badge.description }}</div>
-                                        <div class="clear"></div>
-                                        <img src="{{ badge.get_photo }}" alt="">
-                                    </div>
-
-                                {% endfor %}
-                            </div>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="row well">
-                        <div class="col-md-7">
-                            <div class="mainuserclass col-md-12">
-                                <div class="nameclass label label-primary">Username: {{ user.username }} </div><br>
-                                <div class="nameclass label label-primary"> {{ user.profile.get_full_name }} </div><br>
-                                {% if user.profile.title %}<div class="nameclass label label-primary"> {{ user.profile.title }} </div><br>{% endif %}
-                                {% if user.profile.bio %}<div style="margin-top: 5px; margin-bottom: -20px; width:100%" class="well"> {{ user.profile.bio|truncatechars:80 }} </div><br>{% endif %}
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="profilepicture"> {% autoescape off %} {{ user.get_profile.image_tag }} {% endautoescape %} </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row well">
+                    <div class="col-md-7">
+                        <div class="mainuserclass col-md-12">
+                            <div class="nameclass label label-primary">Username: {{ user.username }} </div><br>
+                            <div class="nameclass label label-primary"> {{ user.profile.get_full_name }} </div><br>
+                            {% if user.profile.title %}<div class="nameclass label label-primary"> {{ user.profile.title }} </div><br>{% endif %}
+                            {% if user.profile.bio %}<div style="margin-top: 5px; margin-bottom: -20px; width:100%" class="well"> {{ user.profile.bio|truncatechars:80 }} </div><br>{% endif %}
                         </div>
                     </div>
-                    {% experience_points user.gitscore.level as exp_points %}
-                <div class="col-md-11 col-md-offset-1">
-                    <div id="level-exp" class="row">
-                        <div class="col-md-offset-1 col-md-4 alert alert-danger alert-info"
-                            <span>Level: </span><span>{{ user.gitscore.level }}</span>
-                        </div>
-                        <div class="col-md-6 alert alert-dismissable alert-info" style="text-align: right">
-                            <span>Exp: </span><span>{{ user.gitscore.experience }} / {{ exp_points }}</span>
-                        </div>
+                    <div class="col-md-2">
+                        <div class="profilepicture"> {% autoescape off %} {{ user.get_profile.image_tag }} {% endautoescape %} </div>
                     </div>
-                    <div class="row">
-                        <div class="progress progress-striped active">
-                            <div class="progress-bar progress-bar-success" style="width: {% divide user.gitscore.experience exp_points 50 as thirtyfive %}{{ thirtyfive }}%"></div>
-                            <div class="progress-bar progress-bar-warning" style="width: {% divide user.gitscore.experience exp_points 35 as twenty %}{{ twenty }}%"></div>
-                            <div class="progress-bar progress-bar-danger" style="width: {% divide user.gitscore.experience exp_points 15 as ten %}{{ ten }}%"></div>
-                        </div>
+                </div>
+                {% experience_points user.gitscore.level as exp_points %}
+            <div class="col-md-11 col-md-offset-1">
+                <div id="level-exp" class="row">
+                    <div class="col-md-offset-1 col-md-4 alert alert-danger alert-info"
+                        <span>Level: </span><span>{{ user.gitscore.level }}</span>
                     </div>
-                    <div id="statistics-container" class="row">
-                        <div class="block">
-                            <div class="navbar navbar-inner block-header">
-                                <h1 class="muted pull-left">Statistics</h1>
+                    <div class="col-md-6 alert alert-dismissable alert-info" style="text-align: right">
+                        <span>Exp: </span><span>{{ user.gitscore.experience }} / {{ exp_points }}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar progress-bar-success" style="width: {% divide user.gitscore.experience exp_points 50 as thirtyfive %}{{ thirtyfive }}%"></div>
+                        <div class="progress-bar progress-bar-warning" style="width: {% divide user.gitscore.experience exp_points 35 as twenty %}{{ twenty }}%"></div>
+                        <div class="progress-bar progress-bar-danger" style="width: {% divide user.gitscore.experience exp_points 15 as ten %}{{ ten }}%"></div>
+                    </div>
+                </div>
+                <div id="statistics-container" class="row">
+                    <div class="block">
+                        <div class="navbar navbar-inner block-header">
+                            <h1 class="muted pull-left">Statistics</h1>
 
-                                <div class="pull-right" style="float: right; margin-top: 20px;">
-                                    <div class="btn btn-default">Get Started!</div>
+                            <div class="pull-right" style="float: right; margin-top: 20px;">
+                                <div class="btn btn-default">Get Started!</div>
+                            </div>
+                        </div>
+                        <div class="block-content collapse in">
+                            <div class="col-md-4">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Code Time</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <h3>{{ user.gitscore.totaltime }}</h3>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="block-content collapse in">
-                                <div class="col-md-4">
-                                    <div class="panel panel-primary">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Code Time</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <h3>{{ user.gitscore.totaltime }}</h3>
-                                        </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">LoC</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <h3>{{ user.gitscore.totalloc }}</h3>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-success">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">LoC</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <h3>{{ user.gitscore.totalloc }}</h3>
-                                        </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="panel panel-warning">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Commits</h3>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="panel panel-warning">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title">Commits</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <h3>{{ user.gitscore.totalcommits }}</h3>
-                                        </div>
+                                    <div class="panel-body">
+                                        <h3>{{ user.gitscore.totalcommits }}</h3>
                                     </div>
                                 </div>
                             </div>
@@ -114,8 +107,6 @@
                 </div>
             </div>
         </div>
-        </div>
     </div>
 
-</div>
 {% endblock %}

@@ -6,6 +6,11 @@
     text-align:center;
 }
 
+#content {
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
 .profilePic {
     width: 100%
 }
