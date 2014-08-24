@@ -16,7 +16,7 @@
     background-attachment: fixed;
     color: #fff;
 
-    position: relative;
+    /*position: relative;*/
     margin-top: -20px; /* negative value of footer height */
     clear:both;
     text-align: center;
