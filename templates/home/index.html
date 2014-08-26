@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+    {% load gh_tags %}
     <div id="header" class="jumbotron my-jb home-jb">
         <div class="container" style="max-width: 950px">
             <img id="gh-matrix" class="img-responsive github-matrix" src="/static/home/images/github-matrix.png" />
@@ -19,22 +20,40 @@
         </div>
     </div>
 
-{#    <div class="row top-githack-container">#}
-{#        <div class="col-md-3 col-sm-12">#}
-{#            <h1><span class="text-logo" style="font-size: 1.5em">Top GitHackers</span></h1>#}
-{#        </div>#}
-{#        {% for githacker in top_githackers %}#}
-{#        <div class="col-xs-6 col-sm-4 col-md-2">#}
-{#            <div class="top-githack-user">#}
-{#                <h4>{{ githacker.profile.get_full_name }}</h4>#}
-{#                <div class="top-githack-img-container">#}
-{#                    <img class="img-responsive" src="{{ githacker.profile.get_photo }}">#}
-{#                </div>#}
-{#                <h2>Level: {{ githacker.gitscore.level }}</h2>#}
-{#            </div>#}
-{#        </div>#}
-{#        {% endfor %}#}
-{#    </div>#}
+    <div class="row top-githack-container">
+        <div class="col-md-3 col-sm-12" style="padding: 0px 50px 0px 50px;">
+            <h1><span class="text-logo" style="font-size: 1.5em">Top GitHackers</span></h1>
+        </div>
+        <div class="col-md-9 col-sm-12">
+            {% for githacker in top_githackers %}
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="top-githack-user">
+                    <h4>{{ githacker.profile.get_full_name }}</h4>
+                    <div class="top-githack-img-container">
+                        <img class="img-responsive" src="{{ githacker.profile.get_photo }}">
+                    </div>
+                    {% experience_points githacker.gitscore.level as exp_points %}
+                    <div class="col-md-11 col-md-offset-1">
+                        <div id="level-exp" class="row">
+                            <div class="col-md-offset-1 col-md-4 alert alert-danger alert-info"
+                            <span>Level: </span><span>{{ githacker.gitscore.level }}</span>
+                        </div>
+                        <div class="col-md-6 alert alert-dismissable alert-info" style="text-align: right">
+                            <span>Exp: </span><span>{{ githacker.gitscore.experience }} / {{ exp_points }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="progress progress-striped active">
+                            <div class="progress-bar progress-bar-success" style="width: {% divide githacker.gitscore.experience exp_points 50 as thirtyfive %}{{ thirtyfive }}%"></div>
+                            <div class="progress-bar progress-bar-warning" style="width: {% divide githacker.gitscore.experience exp_points 35 as twenty %}{{ twenty }}%"></div>
+                            <div class="progress-bar progress-bar-danger" style="width: {% divide githacker.gitscore.experience exp_points 15 as ten %}{{ ten }}%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
     <div class="container">
         <div class="jumbotron my-jb">
