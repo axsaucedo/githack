@@ -21,7 +21,7 @@ var popDelay = 500, //delay between the pops of the 3 blocks
     scaleDelay = 500 //how long an element stays scaled up
 
 
-$(document).ready(function() {
+$(function() {
 
     $("#header, #gh-matrix").addClass("ready") //animate GitHack header
     
@@ -51,4 +51,4 @@ $(document).ready(function() {
     }
     
     $(window).scroll(onScroll);
-})
+})()

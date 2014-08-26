@@ -17,7 +17,7 @@ class UserProfile(models.Model):
     bio = models.CharField(max_length=200, null=True, blank=True, default="")
 
     def get_full_name(self): return self.user.first_name + " " + self.user.last_name if self.user.first_name else self.user.username
-    def get_photo(self): return self.photo.url if self.photo else '/media/profiles/placeholder.jpg'
+    def get_photo(self): return self.photo.url if self.photo else '/static/images/man-placeholder.jpg'
     def image_tag(self): return u'<img src="%s" />' % self.get_photo()
     image_tag.short_description = 'Image'
     image_tag.allow_tags = True

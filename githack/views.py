@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 
 from django.contrib.auth.models import User
 import json
@@ -59,6 +59,9 @@ def usercommit(request):
 
     return HttpResponse(json.dumps(response), content_type="application/json")
 
+def home(request):
+    top_githackers = User.objects.all().order_by('gitscore__level')[:3]
+    return render(request, 'home/index.html', { 'top_githackers': top_githackers, })
 
 def error404(request):
     return render(request, '404.html')

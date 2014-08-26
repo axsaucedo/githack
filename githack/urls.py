@@ -8,8 +8,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
     # Home
-#    url(r'^$', 'githack.views.home', name='home'),
-    (r'^$', TemplateView.as_view(template_name='home/index.html')),
+    url(r'^$', 'githack.views.home', name='home'),
     (r'^download/$', TemplateView.as_view(template_name='home/download.html')),
 
     # API
