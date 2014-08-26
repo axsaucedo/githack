@@ -19,22 +19,22 @@
         </div>
     </div>
 
-    <div class="row top-githack-container">
-        <div class="col-md-3 col-sm-12">
-            <h1><span class="text-logo" style="font-size: 1.5em">Top GitHackers</span></h1>
-        </div>
-        {% for githacker in top_githackers %}
-        <div class="col-xs-6 col-sm-4 col-md-2">
-            <div class="top-githack-user">
-                <h4>{{ githacker.profile.get_full_name }}</h4>
-                <div class="top-githack-img-container">
-                    <img class="img-responsive" src="{{ githacker.profile.get_photo }}">
-                </div>
-                <h2>Level: {{ githacker.gitscore.level }}</h2>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+{#    <div class="row top-githack-container">#}
+{#        <div class="col-md-3 col-sm-12">#}
+{#            <h1><span class="text-logo" style="font-size: 1.5em">Top GitHackers</span></h1>#}
+{#        </div>#}
+{#        {% for githacker in top_githackers %}#}
+{#        <div class="col-xs-6 col-sm-4 col-md-2">#}
+{#            <div class="top-githack-user">#}
+{#                <h4>{{ githacker.profile.get_full_name }}</h4>#}
+{#                <div class="top-githack-img-container">#}
+{#                    <img class="img-responsive" src="{{ githacker.profile.get_photo }}">#}
+{#                </div>#}
+{#                <h2>Level: {{ githacker.gitscore.level }}</h2>#}
+{#            </div>#}
+{#        </div>#}
+{#        {% endfor %}#}
+{#    </div>#}
 
     <div class="container">
         <div class="jumbotron my-jb">
