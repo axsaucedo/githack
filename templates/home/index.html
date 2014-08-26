@@ -33,12 +33,11 @@
                         <img class="img-responsive" src="{{ githacker.profile.get_photo }}">
                     </div>
                     {% experience_points githacker.gitscore.level as exp_points %}
-                    <div class="col-md-11 col-md-offset-1">
-                        <div id="level-exp" class="row">
-                            <div class="col-md-offset-1 col-md-4 alert alert-danger alert-info"
-                            <span>Level: </span><span>{{ githacker.gitscore.level }}</span>
+                    <div class="row">
+                        <div class="col-xs-4 alert alert-danger alert-info" style="text-align: right; padding: 10px  10px  10px  10px ;">
+                            <span>Lvl: </span><span>{{ githacker.gitscore.level }}</span>
                         </div>
-                        <div class="col-md-6 alert alert-dismissable alert-info" style="text-align: right">
+                        <div class="col-xs-8 alert alert-dismissable alert-info" style="text-align: right; padding: 10px  10px  10px  10px ;">
                             <span>Exp: </span><span>{{ githacker.gitscore.experience }} / {{ exp_points }}</span>
                         </div>
                     </div>

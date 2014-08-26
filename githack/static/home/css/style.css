@@ -300,7 +300,6 @@ html {
 
 .githack-img-info {
     max-height:287px;
-    max-width: 287px;
     overflow:hidden;
 
     -webkit-border-radius: 50px;
@@ -317,22 +316,26 @@ html {
     text-align: center;
     margin: auto auto;
 }
-.top-githack-user  {
-
+.top-githack-user h4 {
+    /*height: 50px;*/
 }
 .top-githack-img-container {
-
+    /*max-height: 200px;*/
+    padding-bottom: 20px;
 }
 .top-githack-user img {
     width: 80%;
+    /*max-height: 180px;*/
     margin: auto auto;
 }
 
 .home-card .card-text {
     /*padding:5px;*/
-    padding:0 10px 10px 10px;
+    padding: 0 10px 10px 10px;
 }
-
+.top-githack-user {
+    margin: 0px 10px 0px 10px;
+}
 .home-card.anim {
     
 }
