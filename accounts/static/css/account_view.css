@@ -133,11 +133,11 @@
    padding-bottom: 10px;
 }*/
 
-
-
-
-
 #level-exp div {
     margin-top: 50px;
     font-size: 1.5em;
+}
+#level-exp .exp {
+    margin-top: 50px;
+    font-size: 1em;
 }

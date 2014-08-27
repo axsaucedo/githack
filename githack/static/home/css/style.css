@@ -262,6 +262,9 @@ html {
     }   
 }
 
+.my-form {
+    margin-bottom: 100px;
+}
 
 
 @media (max-width: 768px) {
