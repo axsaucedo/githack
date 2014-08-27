@@ -60,8 +60,7 @@ def usercommit(request):
     return HttpResponse(json.dumps(response), content_type="application/json")
 
 def home(request):
-    top_githackers = User.objects.all().order_by('gitscore__level')[:3]
-    print top_githackers
+    top_githackers = User.objects.all().order_by('-gitscore__level')[:3]
     return render(request, 'home/index.html', { 'top_githackers': top_githackers, })
 
 def error404(request):
